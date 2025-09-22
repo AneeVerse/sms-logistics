@@ -143,26 +143,33 @@ export default function Footer() {
 				</div>
 			</div>
 
-			{/* Bottom bar */}
+			{/* Bottom Section */}
 			<div className="mt-16 md:mt-20 border-t border-white/10">
-				<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 py-8 md:py-10">
-					{/* Main bottom content */}
-					<div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
-						<div className="flex items-center gap-6 text-sm text-white/70">
-							<Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-							<span>|</span>
-							<Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-						</div>
-					</div>
-					
-					{/* Bottom section with attribution */}
-					<div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-						<div className="text-xs text-white/50">
-							© 2025 Tiger Terrain. All rights reserved.
-						</div>
+				<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 pt-8">
+					<div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
 						
-						<div className="text-xs text-white/50">
-							Designed & Managed by Aneeverse
+						{/* Left Side - Copyright */}
+						<div className="text-center lg:text-left order-2 lg:order-1">
+							<span className="text-sm text-white/70">© 2025 Tiger Terrain. All rights reserved.</span>
+						</div>
+
+						{/* Center - Privacy Policy and Terms of Service */}
+						<div className="flex items-center justify-center space-x-4 sm:space-x-6 text-sm text-white/70 order-3 lg:order-2">
+							<Link href="#" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Privacy Policy</Link>
+							<span className="text-white/40">|</span>
+							<Link href="#" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Terms of Service</Link>
+						</div>
+
+						{/* Right Side - Aneeverse Credit */}
+						<div className="text-center lg:text-right order-1 lg:order-3">
+							<Link 
+								href="https://www.aneeverse.com/" 
+								target="_blank" 
+								rel="noopener noreferrer"
+								className="flex items-center justify-center lg:justify-end space-x-2 text-sm text-white/70 hover:text-white transition-colors duration-200 group"
+							>
+								<span className="whitespace-nowrap">Designed & Managed by Aneeverse</span>
+							</Link>
 						</div>
 					</div>
 				</div>
