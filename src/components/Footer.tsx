@@ -25,7 +25,7 @@ export default function Footer() {
 			</div>
 
 			<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12">
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_0.9fr_1fr] gap-10 md:gap-12 lg:gap-16">
 					{/* Brand + subscribe */}
 					<div>
 						<Link href="/" className="inline-flex items-center">
@@ -43,16 +43,16 @@ export default function Footer() {
 							Eiusmod Tempor Incidunt Ut Labore Et
 						</p>
 
-						<form className="mt-6 flex h-12 rounded-full overflow-hidden bg-white/10 ring-1 ring-inset ring-white/15 focus-within:ring-[#0A3AB6]/60">
+						<form className="mt-6 flex h-12 rounded-full overflow-hidden bg-white/10 ring-1 ring-inset ring-white/15 focus-within:ring-2 focus-within:ring-[#0A3AB6] transition-all">
 							<input
 								type="email"
 								placeholder="Enter Your E-Mail"
-								className="flex-1 bg-transparent px-5 text-white placeholder-white/60 outline-none"
+								className="flex-1 bg-transparent px-5 text-white placeholder-white/60 outline-none text-sm"
 								aria-label="Email address"
 							/>
 							<button
 								type="submit"
-								className="px-5 md:px-6 bg-[#0A3AB6] hover:bg-[#1532DE] text-white text-sm font-semibold"
+								className="px-6 md:px-7 bg-[#0A3AB6] hover:bg-[#1532DE] text-white text-sm font-semibold transition-colors rounded-r-full"
 							>
 								Subscribe
 							</button>
