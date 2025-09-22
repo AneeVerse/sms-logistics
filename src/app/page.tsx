@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import OurSolution from "@/components/OurSolution";
 import Transportation from "@/components/Transportation";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import GlobalPresence from "@/components/GlobalPresence";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Transportation />
       <OurSolution />
       <WhyChooseUs />
+      <GlobalPresence />
     
     </div>
   );
