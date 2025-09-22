@@ -4,11 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
-	const currentYear = new Date().getFullYear();
-
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	};
 
 	return (
 		<footer className="relative -mx-3 md:-mx-4 lg:-mx-6 -mb-3 md:-mb-4 lg:-mb-6 bg-[#070E31] text-white pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-3 md:pb-4 lg:pb-6">
@@ -100,7 +95,7 @@ export default function Footer() {
 						<h4 className="text-lg sm:text-xl font-semibold">Quick Links</h4>
 						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-[#28C2D5] rounded-full" />
 						<ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-white/80 text-sm sm:text-base">
-							<li><Link href="#how-it-works" className="hover:text-white transition-colors">How It's Work</Link></li>
+							<li><Link href="#how-it-works" className="hover:text-white transition-colors">How It&apos;s Work</Link></li>
 							<li><Link href="#partners" className="hover:text-white transition-colors">Partners</Link></li>
 							<li><Link href="#testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
 							<li><Link href="#case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>

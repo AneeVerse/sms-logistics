@@ -43,7 +43,7 @@ export default function Contact() {
             </div>
             <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-medium leading-tight text-blue-900">
               <span className="text-red-600">Connect</span> with Us Today
-              <br className="hidden sm:block" /> and <span className="text-red-600">We'll Help</span> Your
+              <br className="hidden sm:block" /> and <span className="text-red-600">We&apos;ll Help</span> Your
               <br className="hidden sm:block" /> Business
             </h2>
             <p className="mt-4 sm:mt-5 text-gray-600 max-w-xl text-sm sm:text-base">

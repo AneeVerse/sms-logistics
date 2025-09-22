@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 
 type Freight = {
   num: string;

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 const slides = [
   {
@@ -20,7 +20,6 @@ const slides = [
 export default function Hero() {
   const [index, setIndex] = useState(0);
 
-  const active = useMemo(() => slides[index], [index]);
   const next = () => setIndex((i) => (i + 1) % slides.length);
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
