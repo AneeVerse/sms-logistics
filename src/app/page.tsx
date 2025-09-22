@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import Service from "@/components/Service";
 import HowItWorks from "@/components/HowItWorks";
 import OurSolution from "@/components/OurSolution";
+import Transportation from "@/components/Transportation";
+import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function Home() {
   return (
@@ -12,8 +14,11 @@ export default function Home() {
         <Hero />
       </div>
       <Service />
-      <OurSolution />
       <HowItWorks />
+      <Transportation />
+      <OurSolution />
+      <WhyChooseUs />
+    
     </div>
   );
 }
