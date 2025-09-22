@@ -6,6 +6,7 @@ import OurSolution from "@/components/OurSolution";
 import Transportation from "@/components/Transportation";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GlobalPresence from "@/components/GlobalPresence";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <OurSolution />
       <WhyChooseUs />
       <GlobalPresence />
+      <Footer />
     
     </div>
   );
