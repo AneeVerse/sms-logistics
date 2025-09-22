@@ -60,24 +60,24 @@ export default function OurSolution() {
   const activeConfig = FREIGHTS.find((f) => f.key === active)!;
 
   return (
-    <section id="our-solution" className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 py-20">
+    <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
       {/* Eyebrow */}
-      <div className="flex items-center gap-3 text-[#D11E2B] font-medium justify-center">
-        <span className="h-3 w-3 rounded-full bg-[#D11E2B] inline-block" />
-        <span className="text-black font-normal">OUR FREIGHT SOLUTION</span>
+      <div className="flex items-center gap-2 sm:gap-3 text-[#D11E2B] font-medium justify-center">
+        <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#D11E2B] inline-block" />
+        <span className="text-black font-normal text-sm sm:text-base">OUR FREIGHT SOLUTION</span>
       </div>
 
       {/* Title */}
-      <h2 className="mt-5 text-center text-3xl md:text-4xl lg:text-[48px] font-medium leading-tight">
+      <h2 className="mt-4 sm:mt-5 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
         <span className="text-[#0A3AB6]">Expertly Managing </span>
         <span className="text-[#D11E2B]">Every Step </span>
         <span className="text-[#0A3AB6]">From Transit to</span>
-        <br className="hidden md:block" />
+        <br className="hidden sm:block" />
         <span className="text-[#0A3AB6]">Warehousing</span>
       </h2>
 
       {/* Tabs */}
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
+      <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 px-4">
         {FREIGHTS.map((f) => {
           const isActive = active === f.key;
           return (
@@ -85,13 +85,13 @@ export default function OurSolution() {
               key={f.key}
               type="button"
               onClick={() => setActive(f.key)}
-              className={`relative pb-3 text-base md:text-lg transition-colors ${
+              className={`relative pb-2 sm:pb-3 text-sm sm:text-base md:text-lg transition-colors whitespace-nowrap ${
                 isActive ? "text-[#D11E2B]" : "text-gray-600 hover:text-gray-900"
               }`}
             >
               {f.label}
               <span
-                className={`absolute left-0 -bottom-[2px] h-[3px] rounded-full transition-all bg-[#D11E2B] ${
+                className={`absolute left-0 -bottom-[1px] sm:-bottom-[2px] h-[2px] sm:h-[3px] rounded-full transition-all bg-[#D11E2B] ${
                   isActive ? "w-full" : "w-0"
                 }`}
               />
@@ -101,12 +101,12 @@ export default function OurSolution() {
       </div>
 
       {/* Content card (framed, compact) */}
-      <div className="mt-8 mx-auto max-w-[1100px] rounded-[24px] border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden">
-        <div className="rounded-[18px] bg-[#0A3AB6] p-4 sm:p-6 lg:p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden">
+        <div className="rounded-[12px] sm:rounded-[14px] md:rounded-[18px] bg-[#0A3AB6] p-3 sm:p-4 md:p-6 lg:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             {/* Image */}
-            <div className="relative rounded-2xl overflow-hidden bg-white/5">
-              <div className="relative h-[220px] sm:h-[280px] md:h-[320px] lg:h-[360px]">
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-white/5">
+              <div className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px] xl:h-[360px]">
                 <Image
                   key={activeConfig.imageSrc}
                   src={activeConfig.imageSrc}
@@ -121,25 +121,25 @@ export default function OurSolution() {
 
             {/* Text */}
             <div className="flex flex-col justify-center text-white px-1 md:px-2 lg:px-1">
-              <h3 className="text-xl md:text-2xl font-semibold leading-snug">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold leading-snug">
                 {activeConfig.heading}
               </h3>
               <p className="mt-3 text-white/90 leading-relaxed text-sm md:text-[15px]">
                 {activeConfig.description}
               </p>
 
-              <div className="mt-6">
+              <div className="mt-5 sm:mt-6">
                 <button
                   type="button"
-                  className="group inline-flex items-center rounded-full bg-white text-[#0A3AB6] pl-5 pr-2 py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
+                  className="group inline-flex items-center rounded-full bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
                 >
                   <span>Get a Free Quote</span>
-                  <span className="ml-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-[#D11E2B] group-hover:text-white">
+                  <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-[#D11E2B] group-hover:text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
-                      className="h-5 w-5"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
                       stroke="currentColor"
                       strokeWidth="2"
                       strokeLinejoin="round"
