@@ -11,17 +11,18 @@ type Marker = {
   // Position as percentage relative to the image container
   left: number; // 0-100
   top: number; // 0-100
+  offsetY?: number; // fine-tune connector alignment (px)
 };
 
 const MARKERS: Marker[] = [
   { id: "russia", name: "Russia", address: "Moscow, Russia", left: 66, top: 20 },
-  { id: "china", name: "China", address: "89 Innovation Avenue Suite 5A, Shanghai", left: 80, top: 40 },
+  { id: "china", name: "China", address: "89 Innovation Avenue Suite 5A, Shanghai", left: 80, top: 40, offsetY: -3 },
   { id: "germany", name: "Germany", address: "Berlin, Germany", left: 58, top: 34 },
-  { id: "america", name: "America", address: "New York, USA", left: 21, top: 38 },
-  { id: "canada", name: "Canada", address: "Toronto, Canada", left: 18, top: 28 },
-  { id: "australia", name: "Australia", address: "Sydney, Australia", left: 88, top: 78 },
+  { id: "america", name: "America", address: "New York, USA", left: 21, top: 38, offsetY: -3 },
+  { id: "canada", name: "Canada", address: "Toronto, Canada", left: 18, top: 28, offsetY: -3 },
+  { id: "australia", name: "Australia", address: "Sydney, Australia", left: 88, top: 78, offsetY: 2 },
   { id: "france", name: "France", address: "12 Rue de la Lumière Bâtiment C, Bureau 45, Paris 75012 France", left: 52, top: 34 },
-  { id: "south-africa", name: "South Africa", address: "Cape Town, South Africa", left: 55, top: 73 },
+  { id: "south-africa", name: "South Africa", address: "Cape Town, South Africa", left: 55, top: 73, offsetY: 2 },
 ];
 
 export default function GlobalPresence() {
@@ -105,29 +106,29 @@ export default function GlobalPresence() {
             {/* Tooltip card for active marker */}
             {active && (
               <div
-                className="absolute z-10 animate-in fade-in zoom-in duration-200"
-                style={{ left: `${active.left}%`, top: `${active.top}%` }}
+                className="absolute z-10"
+                style={{ left: `${active.left}%`, top: `${active.top + (active.offsetY ?? 0) / 1}%` }}
               >
+                {/* Tooltip group keeps consistent 18px gap */}
                 {active.top < 35 ? (
-                  // show card below for top markers
-                  <div className="-translate-x-1/2 translate-y-8 flex flex-col items-center">
-                    {/* line */}
-                    <div className="h-6 w-0.5 bg-[#F36B21]" />
-                    <div className="h-3 w-3 rounded-full bg-[#F36B21]" />
-                    <div className="mt-3 rounded-lg bg-[#F36B21] text-white shadow-xl min-w-[220px] max-w-[280px] px-4 py-3 text-center">
+                  // card below marker
+                  <div className="flex flex-col items-center -translate-x-1/2 animate-in fade-in zoom-in duration-200">
+                    <div className="h-[12px] w-0.5 bg-[#F36B21]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#F36B21]" />
+                    <div className="mt-4 rounded-lg bg-[#F36B21] text-white shadow-xl min-w-[220px] max-w-[280px] px-4 py-3 text-center">
                       <div className="font-semibold text-base">{active.name}</div>
                       <div className="mt-1 text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
                   </div>
                 ) : (
-                  // show card above otherwise
-                  <div className="-translate-x-1/2 -translate-y-28 flex flex-col items-center">
-                    <div className="mb-3 rounded-lg bg-[#F36B21] text-white shadow-xl min-w-[220px] max-w-[280px] px-4 py-3 text-center">
+                  // card above marker
+                  <div className="flex flex-col items-center -translate-x-1/2 -translate-y-[18px] animate-in fade-in zoom-in duration-200">
+                    <div className="mb-4 rounded-lg bg-[#F36B21] text-white shadow-xl min-w-[220px] max-w-[280px] px-4 py-3 text-center">
                       <div className="font-semibold text-base">{active.name}</div>
                       <div className="mt-1 text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
-                    <div className="h-6 w-0.5 bg-[#F36B21]" />
-                    <div className="h-3 w-3 rounded-full bg-[#F36B21]" />
+                    <div className="h-[12px] w-0.5 bg-[#F36B21]" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-[#F36B21]" />
                   </div>
                 )}
               </div>
