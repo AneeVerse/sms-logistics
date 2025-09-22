@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import GlobalPresence from "@/components/GlobalPresence";
 import FloatingPoster from "@/components/FloatingPoster";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <Transportation />
       <OurSolution />
       <WhyChooseUs />
+      <Contact />
       <GlobalPresence />
       <FloatingPoster />
       <Footer />
