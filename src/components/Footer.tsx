@@ -11,9 +11,9 @@ export default function Footer() {
 	};
 
 	return (
-		<footer className="relative -mx-3 md:-mx-4 lg:-mx-6 bg-[#070E31] text-white pt-16 md:pt-20">
+		<footer className="relative -mx-3 md:-mx-4 lg:-mx-6 -mb-3 md:-mb-4 lg:-mb-6 bg-[#070E31] text-white pt-40 md:pt-48 lg:pt-56 pb-3 md:pb-4 lg:pb-6">
 			{/* Decorative top-left graphic */}
-			<div className="pointer-events-none select-none absolute left-4 md:left-10 -top-16 md:-top-20 opacity-20" aria-hidden>
+			<div className="pointer-events-none select-none absolute left-6 md:left-12 lg:left-16 -top-12 md:-top-16 lg:-top-6 opacity-50" aria-hidden>
 				<Image
 					src="/images/footer-left-top.png"
 					alt=""
@@ -123,8 +123,8 @@ export default function Footer() {
 			</div>
 
 			{/* Bottom bar */}
-			<div className="mt-12 border-t border-white/10">
-				<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 py-6 flex items-center justify-between gap-6">
+			<div className="mt-16 md:mt-20 border-t border-white/10">
+				<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 py-8 md:py-10 flex items-center justify-between gap-6">
 					<div className="text-sm text-white/70">Copyright © {currentYear} <span className="text-white">Logistex</span> | All Right Reserved</div>
 					<div className="flex items-center gap-3 md:gap-4">
 						{/* Socials */}
