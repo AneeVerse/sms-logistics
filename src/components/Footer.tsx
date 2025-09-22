@@ -57,7 +57,28 @@ export default function Footer() {
 								Subscribe
 							</button>
 						</form>
-						<div className="mt-3 text-xs text-white/60">We Don’t Send You Any Spam</div>
+
+						{/* Social icons */}
+						<div className="mt-6 flex items-center gap-3">
+							{[
+								{ label: "Facebook", d: "M15 3h-3a5 5 0 00-5 5v3H5v4h2v6h4v-6h3l1-4h-4V8a1 1 0 011-1h3z" },
+								{ label: "Twitter", d: "M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" },
+								{ label: "WhatsApp", d: "M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3.04 1.05 4.35L2 22l5.65-1.05C8.96 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.5 14.36c-.24.69-1.2 1.26-1.97 1.42-.52.11-1.2.21-3.49-.75-2.91-1.22-4.8-4.15-4.95-4.34-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.02-2.41.27-.29.59-.36.79-.36s.4.01.57.01c.18 0 .43-.07.67.51.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.38-.41.51-.14.15-.28.31-.12.61.16.3.71 1.17 1.53 1.89 1.05.93 1.94 1.22 2.21 1.36.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.13.45.2.52.31.07.11.07.64-.17 1.33z" },
+								{ label: "Instagram", d: "M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 4a1 1 0 110 2 1 1 0 010-2zm-5 2a5 5 0 100 10 5 5 0 000-10z" },
+								{ label: "YouTube", d: "M23.5 6.2a3 3 0 00-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM10 15.5v-7l6 3.5-6 3.5z" },
+							].map((icon) => (
+								<Link
+									key={icon.label}
+									href="#"
+									aria-label={icon.label}
+									className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-[#0A3AB6] transition-colors"
+								>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+										<path d={icon.d} />
+									</svg>
+								</Link>
+							))}
+						</div>
 					</div>
 
 					{/* Our Services */}
@@ -124,39 +145,25 @@ export default function Footer() {
 
 			{/* Bottom bar */}
 			<div className="mt-16 md:mt-20 border-t border-white/10">
-				<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 py-8 md:py-10 flex items-center justify-between gap-6">
-					<div className="text-sm text-white/70">Copyright © {currentYear} <span className="text-white">Logistex</span> | All Right Reserved</div>
-					<div className="flex items-center gap-3 md:gap-4">
-						{/* Socials */}
-						{[
-							{ label: "Facebook", d: "M15 3h-3a5 5 0 00-5 5v3H5v4h2v6h4v-6h3l1-4h-4V8a1 1 0 011-1h3z" },
-							{ label: "Twitter", d: "M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" },
-							{ label: "Instagram", d: "M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 4a1 1 0 110 2 1 1 0 010-2zm-5 2a5 5 0 100 10 5 5 0 000-10z" },
-							{ label: "YouTube", d: "M23.5 6.2a3 3 0 00-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM10 15.5v-7l6 3.5-6 3.5z" },
-						].map((icon) => (
-							<Link
-								key={icon.label}
-								href="#"
-								aria-label={icon.label}
-								className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 hover:bg-[#0A3AB6] transition-colors"
-							>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-									<path d={icon.d} />
-								</svg>
-							</Link>
-						))}
-
-						{/* Back to top */}
-						<button
-							onClick={scrollToTop}
-							aria-label="Back to top"
-							className="ml-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0A3AB6] hover:bg-[#1532DE] transition-colors"
-						>
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="2">
-								<path d="M12 5l-7 7M12 5l7 7" strokeLinecap="round" />
-								<path d="M12 5v14" strokeLinecap="round" />
-							</svg>
-						</button>
+				<div className="mx-auto max-w-[1500px] px-6 md:px-10 lg:px-12 py-8 md:py-10">
+					{/* Main bottom content */}
+					<div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+						<div className="flex items-center gap-6 text-sm text-white/70">
+							<Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+							<span>|</span>
+							<Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+						</div>
+					</div>
+					
+					{/* Bottom section with attribution */}
+					<div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+						<div className="text-xs text-white/50">
+							© 2025 Tiger Terrain. All rights reserved.
+						</div>
+						
+						<div className="text-xs text-white/50">
+							Designed & Managed by Aneeverse
+						</div>
 					</div>
 				</div>
 			</div>

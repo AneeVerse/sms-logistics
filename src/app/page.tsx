@@ -6,6 +6,7 @@ import OurSolution from "@/components/OurSolution";
 import Transportation from "@/components/Transportation";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import GlobalPresence from "@/components/GlobalPresence";
+import FloatingPoster from "@/components/FloatingPoster";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <OurSolution />
       <WhyChooseUs />
       <GlobalPresence />
+      <FloatingPoster />
       <Footer />
     
     </div>
