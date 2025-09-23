@@ -58,10 +58,10 @@ export default function Hero() {
           </p>
           <div className="mt-8 sm:mt-10 inline-flex">
             <Link href="#explore" className="group inline-flex items-stretch rounded-xl overflow-hidden shadow-lg">
-              <span className="rounded-xl rounded-r-none border border-white/25 bg-white/10 backdrop-blur px-4 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-orange-500 group-hover:border-orange-500">
+              <span className="rounded-xl rounded-r-none border border-white/25 bg-white/10 backdrop-blur px-4 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-blue-600 group-hover:border-blue-600">
                 Explore more
               </span>
-              <span className="rounded-xl rounded-l-none bg-orange-500 group-hover:bg-orange-500 text-white px-3 sm:px-4 flex items-center transition-all duration-300">
+              <span className="rounded-xl rounded-l-none bg-blue-600 group-hover:bg-blue-600 text-white px-3 sm:px-4 flex items-center transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 w-4 sm:w-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
                   <path d="M7 17L17 7" strokeLinecap="round" />
                   <path d="M7 7h10v10" strokeLinecap="round" />
@@ -78,7 +78,7 @@ export default function Hero() {
           <button
             type="button"
             onClick={next}
-            className="h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16 inline-flex items-center justify-center bg-white text-gray-900 hover:bg-orange-500 hover:text-white transition-colors"
+            className="h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16 inline-flex items-center justify-center bg-white text-gray-900 hover:bg-blue-600 hover:text-white transition-colors"
             aria-label="Next slide"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
@@ -89,7 +89,7 @@ export default function Hero() {
           <button
             type="button"
             onClick={prev}
-            className="h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16 inline-flex items-center justify-center bg-white text-gray-900 hover:bg-orange-500 hover:text-white transition-colors"
+            className="h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16 inline-flex items-center justify-center bg-white text-gray-900 hover:bg-blue-600 hover:text-white transition-colors"
             aria-label="Previous slide"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
@@ -107,7 +107,7 @@ export default function Hero() {
         </div>
         <div className="h-[2px] sm:h-[3px] w-20 sm:w-28 bg-white/40 rounded-full overflow-hidden">
           <div
-            className="h-full bg-orange-500 transition-all duration-500"
+            className="h-full bg-blue-600 transition-all duration-500"
             style={{ width: `${((index + 1) / slides.length) * 100}%` }}
           />
         </div>

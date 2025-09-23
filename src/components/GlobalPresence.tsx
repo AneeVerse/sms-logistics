@@ -91,11 +91,11 @@ export default function GlobalPresence() {
               >
                 <span className="relative inline-flex items-center justify-center">
                   {/* Animated pulse ring */}
-                  <span className="absolute h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-full bg-[#F36B21]/20 animate-ping" />
-                  <span className="absolute h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full bg-[#F36B21]/30 animate-pulse" />
+                  <span className="absolute h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-full bg-[#2563eb]/20 animate-ping" />
+                  <span className="absolute h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full bg-[#2563eb]/30 animate-pulse" />
                   
                   {/* Main marker */}
-                  <span className="relative h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full border-2 border-white bg-[#F36B21] grid place-items-center shadow-lg">
+                  <span className="relative h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full border-2 border-white bg-[#2563eb] grid place-items-center shadow-lg">
                     {/* Simple dot */}
                     <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-white" />
                   </span>
@@ -113,9 +113,9 @@ export default function GlobalPresence() {
                 {active.top < 35 ? (
                   // card below marker
                   <div className="flex flex-col items-center -translate-x-1/2 animate-in fade-in zoom-in duration-200">
-                    <div className="h-[8px] sm:h-[12px] w-0.5 bg-[#F36B21]" />
-                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#F36B21]" />
-                    <div className="mt-2 sm:mt-4 rounded-lg bg-[#F36B21] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
+                    <div className="h-[8px] sm:h-[12px] w-0.5 bg-[#2563eb]" />
+                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#2563eb]" />
+                    <div className="mt-2 sm:mt-4 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
                       <div className="font-semibold text-sm sm:text-base">{active.name}</div>
                       <div className="mt-1 text-xs sm:text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
@@ -123,12 +123,12 @@ export default function GlobalPresence() {
                 ) : (
                   // card above marker
                   <div className="flex flex-col items-center -translate-x-1/2 -translate-y-[12px] sm:-translate-y-[18px] animate-in fade-in zoom-in duration-200">
-                    <div className="mb-2 sm:mb-4 rounded-lg bg-[#F36B21] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
+                    <div className="mb-2 sm:mb-4 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
                       <div className="font-semibold text-sm sm:text-base">{active.name}</div>
                       <div className="mt-1 text-xs sm:text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
-                    <div className="h-[8px] sm:h-[12px] w-0.5 bg-[#F36B21]" />
-                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#F36B21]" />
+                    <div className="h-[8px] sm:h-[12px] w-0.5 bg-[#2563eb]" />
+                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#2563eb]" />
                   </div>
                 )}
               </div>

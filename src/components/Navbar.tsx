@@ -44,7 +44,7 @@ export default function Navbar() {
           <span className="hidden xl:block text-white/90 text-sm">+91 9029605529</span>
           <Link
             href="#track"
-            className="inline-flex items-center rounded-md bg-orange-500 hover:bg-orange-600 text-white px-4 xl:px-5 py-2.5 xl:py-3 text-sm font-medium shadow-md transition-colors"
+            className="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-5 py-2.5 xl:py-3 text-sm font-medium shadow-md transition-colors"
           >
             <span className="hidden sm:block">Track a shipment</span>
             <span className="sm:hidden">Track</span>
@@ -107,28 +107,28 @@ export default function Navbar() {
               <Link 
                 href="#" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-medium hover:text-orange-400 transition-colors"
+                className="block text-white text-lg font-medium hover:text-blue-300 transition-colors"
               >
                 Home
               </Link>
               <Link 
                 href="#about" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-medium hover:text-orange-400 transition-colors"
+                className="block text-white text-lg font-medium hover:text-blue-300 transition-colors"
               >
                 About
               </Link>
               <Link 
                 href="#services" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-medium hover:text-orange-400 transition-colors"
+                className="block text-white text-lg font-medium hover:text-blue-300 transition-colors"
               >
                 Services
               </Link>
               <Link 
                 href="#contact" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-medium hover:text-orange-400 transition-colors"
+                className="block text-white text-lg font-medium hover:text-blue-300 transition-colors"
               >
                 Contact us
               </Link>
@@ -146,7 +146,7 @@ export default function Navbar() {
                 <Link
                   href="#track"
                   onClick={closeMobileMenu}
-                  className="inline-flex items-center rounded-lg bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-sm font-medium shadow-md transition-colors w-full justify-center"
+                  className="inline-flex items-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-sm font-medium shadow-md transition-colors w-full justify-center"
                 >
                   Track a shipment
                 </Link>

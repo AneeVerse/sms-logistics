@@ -79,7 +79,7 @@ export default function Footer() {
 					{/* Our Services */}
 					<div>
 						<h4 className="text-lg sm:text-xl font-semibold">Our Services</h4>
-						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-[#28C2D5] rounded-full" />
+						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-blue-600 rounded-full" />
 						<ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-white/80 text-sm sm:text-base">
 							<li><Link href="#" className="hover:text-white transition-colors">Air Freight</Link></li>
 							<li><Link href="#" className="hover:text-white transition-colors">Smart Warehousing</Link></li>
@@ -93,7 +93,7 @@ export default function Footer() {
 					{/* Quick Links */}
 					<div>
 						<h4 className="text-lg sm:text-xl font-semibold">Quick Links</h4>
-						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-[#28C2D5] rounded-full" />
+						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-blue-600 rounded-full" />
 						<ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-white/80 text-sm sm:text-base">
 							<li><Link href="#how-it-works" className="hover:text-white transition-colors">How It&apos;s Work</Link></li>
 							<li><Link href="#partners" className="hover:text-white transition-colors">Partners</Link></li>
@@ -106,7 +106,7 @@ export default function Footer() {
 					{/* Information */}
 					<div className="sm:col-span-2 lg:col-span-1">
 						<h4 className="text-lg sm:text-xl font-semibold">Information</h4>
-						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-[#28C2D5] rounded-full" />
+						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-blue-600 rounded-full" />
 						<ul className="mt-4 sm:mt-6 space-y-4 sm:space-y-5">
 							<li className="flex items-start gap-2 sm:gap-3 text-white/80">
 								<span className="mt-0.5 inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">

@@ -8,25 +8,25 @@ export default function Service() {
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 xl:gap-16 items-center">
         {/* Left: Headline and cards */}
         <div className="order-2 lg:order-1">
-          <div className="flex items-center gap-2 sm:gap-3 text-[#D11E2B] font-medium">
-            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#D11E2B] inline-block" />
-            <span className="text-black font-normal text-sm sm:text-base">LOGIX AT YOUR SERVICE</span>
+          <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium">
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
+            <span className="text-gray-600 font-normal text-sm sm:text-base">LOGIX AT YOUR SERVICE</span>
           </div>
 
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
-            <span className="text-[#0A3AB6]">We Provide</span>{" "}
-            <span className="text-[#D11E2B]">End-to-end</span>
+            <span className="text-gray-900">We Provide</span>{" "}
+            <span className="text-blue-600">End-to-end</span>
             <br className="hidden sm:block" />
-            <span className="text-[#D11E2B]">Logistics Services</span>{" "}
-            <span className="text-[#0A3AB6]">for Timely,</span>
+            <span className="text-blue-600">Logistics Services</span>{" "}
+            <span className="text-gray-900">for Timely,</span>
             <br className="hidden sm:block" />
-            <span className="text-[#0A3AB6]">Secure Delivery.</span>
+            <span className="text-gray-900">Secure Delivery.</span>
           </h2>
 
           <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:gap-6">
             {/* Card 1 */}
-            <div className="rounded-2xl bg-[#F5F7FB] p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
-              <div className="text-[#D11E2B] text-base sm:text-lg font-semibold leading-tight">
+            <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
+              <div className="text-blue-600 text-base sm:text-lg font-semibold leading-tight">
                 01<br />Vision
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
@@ -37,8 +37,8 @@ export default function Service() {
             </div>
 
             {/* Card 2 */}
-            <div className="rounded-2xl bg-[#F5F7FB] p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
-              <div className="text-[#D11E2B] text-base sm:text-lg font-semibold leading-tight">
+            <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
+              <div className="text-blue-600 text-base sm:text-lg font-semibold leading-tight">
                 02<br />Mission
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">

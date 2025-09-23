@@ -62,42 +62,41 @@ export default function OurSolution() {
   return (
     <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
       {/* Eyebrow */}
-      <div className="flex items-center gap-2 sm:gap-3 text-[#D11E2B] font-medium justify-center">
-        <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#D11E2B] inline-block" />
-        <span className="text-black font-normal text-sm sm:text-base">OUR FREIGHT SOLUTION</span>
+      <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
+        <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
+        <span className="text-gray-600 font-normal text-sm sm:text-base">OUR FREIGHT SOLUTION</span>
       </div>
 
       {/* Title */}
       <h2 className="mt-4 sm:mt-5 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
-        <span className="text-[#0A3AB6]">Expertly Managing </span>
-        <span className="text-[#D11E2B]">Every Step </span>
-        <span className="text-[#0A3AB6]">From Transit to</span>
+        <span className="text-gray-900">Expertly Managing </span>
+        <span className="text-blue-600">Every Step </span>
+        <span className="text-gray-900">From Transit to</span>
         <br className="hidden sm:block" />
-        <span className="text-[#0A3AB6]">Warehousing</span>
+        <span className="text-blue-600">Warehousing</span>
       </h2>
 
       {/* Tabs */}
-      <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 px-4">
-        {FREIGHTS.map((f) => {
-          const isActive = active === f.key;
-          return (
-            <button
-              key={f.key}
-              type="button"
-              onClick={() => setActive(f.key)}
-              className={`relative pb-2 sm:pb-3 text-sm sm:text-base md:text-lg transition-colors whitespace-nowrap ${
-                isActive ? "text-[#D11E2B]" : "text-gray-600 hover:text-gray-900"
-              }`}
-            >
-              {f.label}
-              <span
-                className={`absolute left-0 -bottom-[1px] sm:-bottom-[2px] h-[2px] sm:h-[3px] rounded-full transition-all bg-[#D11E2B] ${
-                  isActive ? "w-full" : "w-0"
+      <div className="mt-8 sm:mt-10 flex items-center justify-center px-4">
+        <div className="inline-flex bg-gray-100 rounded-2xl p-1.5 sm:p-2">
+          {FREIGHTS.map((f) => {
+            const isActive = active === f.key;
+            return (
+              <button
+                key={f.key}
+                type="button"
+                onClick={() => setActive(f.key)}
+                className={`relative px-5 sm:px-7 py-2.5 sm:py-3 mx-0.5 sm:mx-1 text-sm sm:text-base font-medium rounded-xl sm:rounded-2xl transition-all duration-300 whitespace-nowrap ${
+                  isActive 
+                    ? "bg-blue-600 text-white shadow-md shadow-blue-600/25" 
+                    : "text-gray-600 hover:text-gray-900 hover:bg-white/50"
                 }`}
-              />
-            </button>
-          );
-        })}
+              >
+                {f.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Content card (framed, compact) */}
@@ -134,7 +133,7 @@ export default function OurSolution() {
                   className="group inline-flex items-center rounded-full bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
                 >
                   <span>Get a Free Quote</span>
-                  <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-[#D11E2B] group-hover:text-white">
+                  <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-600 group-hover:text-white">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
