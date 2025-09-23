@@ -19,7 +19,6 @@ export default function Home() {
       </div>
       <Service />
       <HowItWorks />
-      <Transportation />
       <OurSolution />
       <WhyChooseUs />
       <Contact />
