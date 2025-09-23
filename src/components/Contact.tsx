@@ -58,7 +58,7 @@ export default function Contact() {
               CONTACT US
             </div>
             <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-6xl font-medium leading-tight">
-              <span className="text-black">Let's Move Your</span>
+              <span className="text-black">Let&apos;s Move Your</span>
               <br className="hidden sm:block" />
               <span className="text-blue-600">Business Forward</span>
             </h2>

@@ -38,7 +38,7 @@ export default function Service() {
                 02<br />Vision
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                To be India's premier logistics partner, setting industry benchmarks 
+                To be India&apos;s premier logistics partner, setting industry benchmarks 
                 in service quality, innovation, and trust.
               </p>
             </div>

@@ -97,7 +97,7 @@ export default function HowItWorks() {
           <div className="lg:hidden">
             <div className="overflow-x-auto scrollbar-hide">
               <div className="flex gap-6 pb-4" style={{ width: 'max-content' }}>
-                {steps.map((s, i) => (
+                {steps.map((s) => (
                   <div key={s.num} className="flex-shrink-0 w-72 sm:w-80">
                     <div className="flex flex-col items-center text-center">
                       {/* Circle with icon and number badge */}

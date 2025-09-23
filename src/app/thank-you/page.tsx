@@ -51,7 +51,7 @@ export default function ThankYou() {
                   <span className="text-blue-600 font-semibold text-sm">2</span>
                 </div>
                 <p className="text-gray-700">
-                  We'll contact you via phone or email to discuss your logistics needs in detail.
+                  We&apos;ll contact you via phone or email to discuss your logistics needs in detail.
                 </p>
               </div>
               <div className="flex items-start gap-3">
@@ -59,7 +59,7 @@ export default function ThankYou() {
                   <span className="text-blue-600 font-semibold text-sm">3</span>
                 </div>
                 <p className="text-gray-700">
-                  You'll receive a detailed quote and proposal tailored to your business requirements.
+                  You&apos;ll receive a detailed quote and proposal tailored to your business requirements.
                 </p>
               </div>
             </div>

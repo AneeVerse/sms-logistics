@@ -40,7 +40,7 @@ export default function Hero() {
     }, 10000); // Auto-swipe every 5 seconds
 
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, []);
 
   return (
     <section className="relative isolate min-h-[90vh] sm:min-h-[93vh] overflow-hidden rounded-2xl">

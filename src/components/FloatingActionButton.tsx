@@ -2,9 +2,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaWhatsapp, FaEnvelope, FaPhone } from 'react-icons/fa';
-import { IoIosClose, IoIosAdd, IoIosRemove, IoMdChatboxes } from "react-icons/io";
+import { IoIosClose, IoMdChatboxes } from "react-icons/io";
 import { MdContentCopy } from 'react-icons/md';
-import { IoClose } from "react-icons/io5";
 
 const FloatingActionButton = () => {
   const [open, setOpen] = useState(false);

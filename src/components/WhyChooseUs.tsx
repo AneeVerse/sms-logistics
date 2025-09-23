@@ -28,7 +28,7 @@ export default function WhyChooseUs() {
             <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-semibold leading-tight">
               Experience, Reliability, and 
               <br className="hidden sm:block" />
-              Nationwide Reach That's Our 
+              Nationwide Reach That&apos;s Our 
              
               Promise
             </h2>
