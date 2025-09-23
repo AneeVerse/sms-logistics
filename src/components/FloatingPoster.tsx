@@ -24,11 +24,11 @@ export default function FloatingPoster() {
           {/* Content */}
           <div className="absolute inset-0 p-6 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-center">
             <h3 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight max-w-3xl">
-              Streamline Your Logistics
-              <br className="hidden sm:block" /> Today!
+              Ready for Hassle Free
+              <br className="hidden sm:block" /> Logistics?
             </h3>
             <p className="mt-3 sm:mt-4 text-white/85 max-w-2xl text-sm sm:text-base md:text-lg">
-              Discover a world of effortless and seamless logistics, ready to transform the way you move forward.
+              Experience seamless, transparent, and dependable deliveries with SMS Logistics.
             </p>
 
             <div className="mt-5 sm:mt-6">

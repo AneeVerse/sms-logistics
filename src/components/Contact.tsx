@@ -39,17 +39,15 @@ export default function Contact() {
           <div>
             <div className="flex items-center gap-2 text-sm font-medium text-black">
               <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
-              CONTACT INFO
+              CONTACT US
             </div>
             <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-medium leading-tight">
-              <span className="text-blue-600">Connect</span><span className="text-black"> with Us Today</span>
-              <br className="hidden sm:block" /><span className="text-black"> and </span><span className="text-blue-600">We&apos;ll Help</span><span className="text-black"> Your</span>
-              <br className="hidden sm:block" /> <span className="text-blue-600">Business</span>
+              <span className="text-black">Let's Move Your</span>
+              <br className="hidden sm:block" />
+              <span className="text-blue-600">Business Forward</span>
             </h2>
             <p className="mt-4 sm:mt-5 text-black max-w-xl text-sm sm:text-base">
-              Ready to take your logistics to the next level? Contact us today to
-              discover how our tailored solutions and industry expertise can
-              transform your supply chain.
+              Reach out today for personalized logistics solutions our experts are here to help 24/7.
             </p>
 
             <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">

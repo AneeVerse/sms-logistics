@@ -14,37 +14,32 @@ export default function Service() {
           </div>
 
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
-            <span className="text-gray-900">We Provide</span>{" "}
-            <span className="text-blue-600">End-to-end</span>
-            <br className="hidden sm:block" />
-            <span className="text-blue-600">Logistics Services</span>{" "}
-            <span className="text-gray-900">for Timely,</span>
-            <br className="hidden sm:block" />
-            <span className="text-gray-900">Secure Delivery.</span>
+            <span className="text-gray-900">Moving India Forward,</span>{" "}
+            <span className="text-blue-600">One Delivery </span>
+          
+            <span className="text-blue-600">at a Time</span>
           </h2>
 
           <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:gap-6">
             {/* Card 1 */}
             <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
               <div className="text-blue-600 text-base sm:text-lg font-semibold leading-tight">
-                01<br />Vision
+                01<br />Mission
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                Our mission is to lead the global logistics industry by providing
-                seamless, reliable, and innovative solutions that not only meet
-                but exceed client expectations.
+                To deliver reliable, efficient, and customized logistics solutions, 
+                simplifying the way businesses move goods across India.
               </p>
             </div>
 
             {/* Card 2 */}
             <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
               <div className="text-blue-600 text-base sm:text-lg font-semibold leading-tight">
-                02<br />Mission
+                02<br />Vision
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                Efficient supply chain by offering innovative and responsible
-                logistics solutions that enhance operational performance, reduce
-                costs, and foster growth in a dynamic global market.
+                To be India's premier logistics partner, setting industry benchmarks 
+                in service quality, innovation, and trust.
               </p>
             </div>
           </div>
