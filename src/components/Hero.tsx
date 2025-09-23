@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 const slides = [
@@ -9,11 +8,22 @@ const slides = [
     id: 1,
     src: "/images/hero/hero-bg1.png",
     alt: "Highway truck 1",
+    heading: "PROPER LOGISTIC IS SUCCESS FOR YOUR COMPANY",
+    paragraph: "Mummichog paradise fish! Triggerfish bango guppy opah sunfish bluntnose knifefish upside-down catfish cobia spookfish convict cichlid."
   },
   {
     id: 2,
-    src: "/images/hero/hero-bg2.jpg",
+    src: "/images/hero/hero-bg2.jpg", 
     alt: "Highway truck 2",
+    heading: "RELIABLE FREIGHT SOLUTIONS ACROSS THE GLOBE",
+    paragraph: "Experience seamless logistics with our worldwide network. From air freight to sea cargo, we deliver excellence through innovative supply chain management and cutting-edge technology."
+  },
+  {
+    id: 3,
+    src: "/images/hero/hero-bg3.jpg",
+    alt: "Highway truck 3", 
+    heading: "FAST DELIVERY SECURE TRANSPORTATION WORLDWIDE",
+    paragraph: "Trust our expert team to handle your most critical shipments. With real-time tracking, advanced security measures, and 24/7 support, your cargo is always in safe hands."
   },
 ];
 
@@ -47,17 +57,22 @@ export default function Hero() {
       {/* Content */}
       <div className="relative h-full flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 lg:px-12 pb-8 pt-40 sm:pt-24 md:pt-32 lg:pt-40">
         <div className="text-white text-center max-w-5xl mx-auto">
-          <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] sm:leading-[1.05] tracking-[0.0001em]">
-            <span className="block sm:inline">PROPER LOGISTIC IS SUCCESS</span>
-            <br className="hidden sm:block" />
-            <span className="block sm:inline">FOR YOUR COMPANY</span>
+          <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] sm:leading-[1.05] tracking-[0.0001em] transition-opacity duration-700">
+            {slides[index].heading}
           </h1>
-          <p className="mt-6 sm:mt-7 max-w-2xl lg:max-w-3xl mx-auto text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed px-2 sm:px-0">
-            Mummichog paradise fish! Triggerfish bango guppy opah sunfish bluntnose
-            knifefish<span className="hidden sm:inline"><br /></span> upside-down catfish cobia spookfish convict cichlid.
+          <p className="mt-6 sm:mt-7 max-w-2xl lg:max-w-3xl mx-auto text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed px-2 sm:px-0 transition-opacity duration-700">
+            {slides[index].paragraph}
           </p>
           <div className="mt-8 sm:mt-10 inline-flex">
-            <Link href="#explore" className="group inline-flex items-stretch rounded-xl overflow-hidden shadow-lg">
+            <button 
+              onClick={() => {
+                const element = document.getElementById("our-solution");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="group inline-flex items-stretch rounded-xl overflow-hidden shadow-lg"
+            >
               <span className="rounded-xl rounded-r-none border border-white/25 bg-white/10 backdrop-blur px-4 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-blue-600 group-hover:border-blue-600">
                 Explore more
               </span>
@@ -67,7 +82,7 @@ export default function Hero() {
                   <path d="M7 7h10v10" strokeLinecap="round" />
                 </svg>
               </span>
-            </Link>
+            </button>
           </div>
         </div>
       </div>
@@ -101,7 +116,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom-left slide indicator */}
-      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 md:left-8 lg:left-12 flex flex-col items-start gap-2">
+      <div className="absolute bottom-4 sm:bottom-6 right-20 md:right-30 lg:right-35 flex flex-col items-start gap-2">
         <div className="text-white/95 text-xs sm:text-sm font-semibold tracking-wide">
           {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
         </div>
