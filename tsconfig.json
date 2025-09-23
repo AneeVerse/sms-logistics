@@ -20,9 +20,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@transportation/*": ["./public/images/transportation/*"]
-      ,
-      "@why/*": ["./public/images/why-choose-us/*"]
+     
+   
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

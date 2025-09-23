@@ -34,8 +34,7 @@ export default function Footer() {
 							/>
 						</Link>
 						<p className="mt-4 sm:mt-5 text-white/70 leading-relaxed max-w-md text-sm sm:text-base">
-							Lorem Ipsum Dolor Sit Amet, Consect Etur Adi Pising Elit Sed Do
-							Eiusmod Tempor Incidunt Ut Labore Et
+							Moving India, One Delivery at a Time. Since 2008.
 						</p>
 
 						<form className="mt-5 sm:mt-6 flex h-10 sm:h-12 rounded-full overflow-hidden bg-white/10 ring-1 ring-inset ring-white/15 focus-within:ring-2 focus-within:ring-[#0A3AB6] transition-all">
@@ -81,12 +80,12 @@ export default function Footer() {
 						<h4 className="text-lg sm:text-xl font-semibold">Our Services</h4>
 						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-blue-600 rounded-full" />
 						<ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-white/80 text-sm sm:text-base">
-							<li><Link href="#" className="hover:text-white transition-colors">Air Freight</Link></li>
-							<li><Link href="#" className="hover:text-white transition-colors">Smart Warehousing</Link></li>
-							<li><Link href="#" className="hover:text-white transition-colors">Train Freight</Link></li>
-							<li><Link href="#" className="hover:text-white transition-colors">Ocean Freight</Link></li>
-							<li><Link href="#" className="hover:text-white transition-colors">Road Freight</Link></li>
-							<li><Link href="#" className="hover:text-white transition-colors">Supply Chain</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Fleet Ownership</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Vendor Network</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Customized Logistics</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Pan-India Operations</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Commercial Vehicles</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Specialized Fleet</Link></li>
 						</ul>
 					</div>
 
@@ -95,11 +94,11 @@ export default function Footer() {
 						<h4 className="text-lg sm:text-xl font-semibold">Quick Links</h4>
 						<div className="mt-2 sm:mt-3 h-[3px] w-10 bg-blue-600 rounded-full" />
 						<ul className="mt-4 sm:mt-6 space-y-2 sm:space-y-3 text-white/80 text-sm sm:text-base">
-							<li><Link href="#how-it-works" className="hover:text-white transition-colors">How It&apos;s Work</Link></li>
-							<li><Link href="#partners" className="hover:text-white transition-colors">Partners</Link></li>
-							<li><Link href="#testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
-							<li><Link href="#case-studies" className="hover:text-white transition-colors">Case Studies</Link></li>
-							<li><Link href="#pricing" className="hover:text-white transition-colors">Pricing</Link></li>
+							<li><Link href="#how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+							<li><Link href="#services" className="hover:text-white transition-colors">About Us</Link></li>
+							<li><Link href="#why-choose-us" className="hover:text-white transition-colors">Why Choose Us</Link></li>
+							<li><Link href="#contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+							<li><Link href="#our-solution" className="hover:text-white transition-colors">Our Solutions</Link></li>
 						</ul>
 					</div>
 
@@ -114,7 +113,7 @@ export default function Footer() {
 										<path d="M12 2C7.03 2 3 6.03 3 11c0 6 9 11 9 11s9-5 9-11c0-4.97-4.03-9-9-9zm0 12.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 7.5 12 7.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
 									</svg>
 								</span>
-								<div className="leading-relaxed text-sm sm:text-base">58 Street Commercial Road<br/>Fratton, Australia</div>
+								<div className="leading-relaxed text-sm sm:text-base">Navi Mumbai,<br/>Maharashtra 400614</div>
 							</li>
 							<li className="flex items-center gap-2 sm:gap-3 text-white/80">
 								<span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
@@ -122,7 +121,15 @@ export default function Footer() {
 										<path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/>
 									</svg>
 								</span>
-								<Link href="tel:+1238889999" className="hover:text-white transition-colors text-sm sm:text-base">+123 888 9999</Link>
+								<Link href="tel:+919876543210" className="hover:text-white transition-colors text-sm sm:text-base">+91 98765 43210</Link>
+							</li>
+							<li className="flex items-center gap-2 sm:gap-3 text-white/80">
+								<span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-3 w-3 sm:h-4 sm:w-4" stroke="currentColor" strokeWidth="2">
+										<path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+									</svg>
+								</span>
+								<Link href="mailto:info@smslogistics.in" className="hover:text-white transition-colors text-sm sm:text-base">info@smslogistics.in</Link>
 							</li>
 							<li className="flex items-start gap-2 sm:gap-3 text-white/80">
 								<span className="mt-0.5 inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
@@ -145,14 +152,14 @@ export default function Footer() {
 						
 						{/* Left Side - Copyright */}
 						<div className="text-center sm:text-left lg:text-left order-2 sm:order-1 lg:order-1">
-							<span className="text-sm text-white/70">© 2025 Tiger Terrain. All rights reserved.</span>
+							<span className="text-sm text-white/70">© 2025 SMS Logistics. All rights reserved.</span>
 						</div>
 
 						{/* Center - Privacy Policy and Terms of Service */}
 						<div className="flex items-center justify-center space-x-3 sm:space-x-4 lg:space-x-6 text-sm text-white/70 order-3 sm:order-3 lg:order-2">
-							<Link href="#" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Privacy Policy</Link>
+							<Link href="/privacy-policy" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Privacy Policy</Link>
 							<span className="text-white/40">|</span>
-							<Link href="#" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Terms of Service</Link>
+							<Link href="/terms-of-service" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Terms of Service</Link>
 						</div>
 
 						{/* Right Side - Aneeverse Credit */}

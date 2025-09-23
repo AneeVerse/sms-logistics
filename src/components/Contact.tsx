@@ -23,36 +23,52 @@ export default function Contact() {
     setFormState((s) => ({ ...s, [key]: value }));
   }
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // In a real app, wire up an API here. For now, noop.
-    console.log("Contact submit", formState);
-    alert("Message sent! We'll get back to you promptly.");
-    setFormState({ firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" });
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        // Redirect to thank you page
+        window.location.href = '/thank-you';
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    }
   }
 
   return (
     <section id="contact" className="relative py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 sm:gap-10 lg:gap-12">
           {/* Left: Heading and contact info cards */}
-          <div>
+          <div className="flex flex-col justify-center">
             <div className="flex items-center gap-2 text-sm font-medium text-black">
               <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
               CONTACT US
             </div>
-            <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-5xl font-medium leading-tight">
+            <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl md:text-6xl font-medium leading-tight">
               <span className="text-black">Let's Move Your</span>
               <br className="hidden sm:block" />
               <span className="text-blue-600">Business Forward</span>
             </h2>
-            <p className="mt-4 sm:mt-5 text-black max-w-xl text-sm sm:text-base">
+            <p className="mt-4 sm:mt-5 text-black max-w-xl md:text-xl sm:text-base">
               Reach out today for personalized logistics solutions our experts are here to help 24/7.
             </p>
 
             <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {/* Phone */}
-              <div className="rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 shadow-sm">
+              <div className="rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 md:p-7 shadow-sm">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-full bg-blue-50 flex items-center justify-center text-blue-700">
                     <svg width="18" height="18" className="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -61,13 +77,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">Phone</div>
-                    <div className="font-medium text-black text-sm sm:text-base">+1 (555) 123-4567</div>
+                    <div className="font-medium text-black text-sm sm:text-base">+91 98765 43210</div>
                   </div>
                 </div>
               </div>
 
               {/* Email */}
-              <div className="rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 shadow-sm">
+              <div className="rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 md:p-7 shadow-sm">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-full bg-blue-50 flex items-center justify-center text-blue-700">
                     <svg width="18" height="18" className="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -76,13 +92,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">E-mail</div>
-                    <div className="font-medium text-black text-sm sm:text-base">support@logix.com</div>
+                    <div className="font-medium text-black text-sm sm:text-base">info@smslogistics.in</div>
                   </div>
                 </div>
               </div>
 
               {/* Address full width */}
-              <div className="sm:col-span-2 rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 shadow-sm">
+              <div className="sm:col-span-2 rounded-xl sm:rounded-2xl border border-gray-200 p-4 sm:p-5 md:p-7 shadow-sm">
                 <div className="flex items-start gap-2 sm:gap-3">
                   <div className="h-9 w-9 sm:h-11 sm:w-11 rounded-full bg-blue-50 flex items-center justify-center text-blue-700">
                     <svg width="18" height="18" className="sm:w-[22px] sm:h-[22px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -92,7 +108,7 @@ export default function Contact() {
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">Address</div>
                     <div className="font-medium text-black text-sm sm:text-base">
-                      123 Logistics Avenue, Suite 400, Logistics City, ST, 56789
+                      Navi Mumbai, Maharashtra 400614
                     </div>
                   </div>
                 </div>
@@ -164,7 +180,7 @@ export default function Contact() {
                   value={formState.message}
                   onChange={(e) => update("message", e.target.value)}
                   placeholder="Message"
-                  className="w-full min-h-24 sm:min-h-28 rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base resize-none"
+                  className="w-full min-h-24 md:min-h-5 sm:min-h-28 rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base resize-none"
                 />
 
                 <div className="pt-2">
