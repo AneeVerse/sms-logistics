@@ -61,7 +61,7 @@ export default function Hero() {
               <span className="rounded-xl rounded-r-none border border-white/25 bg-white/10 backdrop-blur px-4 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-orange-500 group-hover:border-orange-500">
                 Explore more
               </span>
-              <span className="rounded-xl rounded-l-none bg-orange-500 group-hover:bg-orange-600 text-white px-3 sm:px-4 flex items-center transition-all duration-300">
+              <span className="rounded-xl rounded-l-none bg-orange-500 group-hover:bg-orange-500 text-white px-3 sm:px-4 flex items-center transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 w-4 sm:w-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
                   <path d="M7 17L17 7" strokeLinecap="round" />
                   <path d="M7 7h10v10" strokeLinecap="round" />
