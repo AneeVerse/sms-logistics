@@ -1,29 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const slides = [
   {
     id: 1,
     src: "/images/hero/hero-bg1.png",
     alt: "Highway truck 1",
-    heading: "PROPER LOGISTIC IS SUCCESS FOR YOUR COMPANY",
-    paragraph: "Mummichog paradise fish! Triggerfish bango guppy opah sunfish bluntnose knifefish upside-down catfish cobia spookfish convict cichlid."
+    heading: "RELIABLE LOGISTICS, DELIVERED",
+    paragraph: "Empowering your business with fast, secure, and flexible transport solutions across India."
   },
   {
     id: 2,
     src: "/images/hero/hero-bg2.jpg", 
     alt: "Highway truck 2",
-    heading: "RELIABLE FREIGHT SOLUTIONS ACROSS THE GLOBE",
-    paragraph: "Experience seamless logistics with our worldwide network. From air freight to sea cargo, we deliver excellence through innovative supply chain management and cutting-edge technology."
+    heading: "DECADES OF TRUST, NATIONWIDE REACH",
+    paragraph: "Proudly serving India with second-generation leadership and an extensive fleet network."
   },
   {
     id: 3,
     src: "/images/hero/hero-bg3.jpg",
     alt: "Highway truck 3", 
-    heading: "FAST DELIVERY SECURE TRANSPORTATION WORLDWIDE",
-    paragraph: "Trust our expert team to handle your most critical shipments. With real-time tracking, advanced security measures, and 24/7 support, your cargo is always in safe hands."
+    heading: "SMART SOLUTIONS FOR EVERY JOURNEY",
+    paragraph: "From first-mile pickup to last-mile delivery, we tailor logistics to move your business forward."
   },
 ];
 
@@ -32,6 +32,15 @@ export default function Hero() {
 
   const next = () => setIndex((i) => (i + 1) % slides.length);
   const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+
+  // Auto-swipe functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, 10000); // Auto-swipe every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <section className="relative isolate min-h-[90vh] sm:min-h-[93vh] overflow-hidden rounded-2xl">
@@ -74,7 +83,7 @@ export default function Hero() {
               className="group inline-flex items-stretch rounded-xl overflow-hidden shadow-lg"
             >
               <span className="rounded-xl rounded-r-none border border-white/25 bg-white/10 backdrop-blur px-4 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-blue-600 group-hover:border-blue-600">
-                Explore more
+                Contact Us Now
               </span>
               <span className="rounded-xl rounded-l-none bg-blue-600 group-hover:bg-blue-600 text-white px-3 sm:px-4 flex items-center transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 w-4 sm:w-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">

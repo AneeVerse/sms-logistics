@@ -38,7 +38,7 @@ export default function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 -mx-3 md:-mx-4 lg:-mx-6 bg-cover bg-center bg-no-repeat"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 -mx-2 sm:-mx-3 md:-mx-4 lg:-mx-6 bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: "url('/images/how-it-works/how-its-work-bg.png')"
       }}
