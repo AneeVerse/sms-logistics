@@ -70,7 +70,7 @@ export default function GlobalPresence() {
         {/* Map with markers */}
         <div className="relative mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl overflow-hidden">
           {/* Background map image */}
-          <div className="relative w-full" style={{ aspectRatio: "16/9 sm:16/8 md:16/7" }}>
+          <div className="relative w-full aspect-video sm:aspect-[16/8] md:aspect-[16/7]">
             <Image
               src="/images/global/global.png"
               alt="World map"

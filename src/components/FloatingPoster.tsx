@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function FloatingPoster() {
   return (
-    <section className="relative z-10 -mt-6 sm:-mt-8 md:-mt-10 lg:-mt-45 -mb-10 sm:-mb-14 md:-mb-20 lg:-mb-24">
+    <section className="relative z-10 -mt-6 sm:-mt-8 md:-mt-10  -mb-10 sm:-mb-14 md:-mb-20 lg:-mb-24">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12">
         <div className="relative rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden shadow-xl shadow-[#0a0e2a]/10 ring-1 ring-black/10">
           {/* Background image */}
