@@ -12,7 +12,7 @@ import FloatingActionButton from "@/components/FloatingActionButton";
 
 export default function Home() {
   return (
-    <div className="font-sans min-h-screen">
+    <div className="font-sans overflow-hidden">
       <div className="relative">
         <Navbar />
         <Hero />

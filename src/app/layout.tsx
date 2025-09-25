@@ -21,10 +21,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function setViewportHeight() {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', vh + 'px');
+              }
+              setViewportHeight();
+              window.addEventListener('resize', setViewportHeight);
+              window.addEventListener('orientationchange', setViewportHeight);
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${inter.variable} font-sans antialiased bg-[#eef0f4]`}
       >
-        <div className="page-rounded m-2 sm:m-3 md:m-4 lg:m-6 bg-white overflow-x-hidden lg:overflow-x-visible">
+        <div className="page-rounded m-2 sm:m-3 md:m-4 lg:m-6 bg-white overflow-x-hidden lg:overflow-x-visible min-h-screen main-container">
           {children}
         </div>
       </body>

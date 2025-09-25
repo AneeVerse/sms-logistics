@@ -1,14 +1,29 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-export async function POST(request: NextRequest) {
+export async function GET() {
+  return NextResponse.json({ message: 'Contact API is working' });
+}
+
+export async function POST(request: Request) {
+  console.log('API route called');
   try {
     const { firstName, lastName, email, phone, subject, message } = await request.json();
+    console.log('Form data received:', { firstName, email, subject });
 
-    // Validate required fields
-    if (!firstName || !lastName || !email || !subject || !message) {
+    // Basic validation
+    if (!firstName || !email || !message) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { success: false, message: 'Name, email, and message are required' },
+        { status: 400 }
+      );
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { success: false, message: 'Please enter a valid email address' },
         { status: 400 }
       );
     }
@@ -24,31 +39,30 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"SMS Logistics" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_RECEIVER,
-      subject: `New Contact Form Submission - ${subject}`,
+      subject: `New Contact: ${subject || 'No Subject'}`,
+      text: `
+        New Contact Form Submission
+        --------------------------
+        Name: ${firstName} ${lastName || ''}
+        Email: ${email}
+        Phone: ${phone || 'Not provided'}
+        Subject: ${subject || 'No subject'}
+        
+        Message:
+        ${message}
+      `,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
-          
-          <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #1e293b; margin-top: 0;">Contact Details</h3>
-            <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-            <p><strong>Subject:</strong> ${subject}</p>
-          </div>
-          
-          <div style="background-color: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #1e293b; margin-top: 0;">Message</h3>
-            <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
-          </div>
-          
-          <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 14px;">
-            <p>This message was sent from the SMS Logistics contact form.</p>
-            <p>Reply directly to this email to respond to the customer.</p>
+          <h2 style="color: #2563eb;">New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+          <p><strong>Subject:</strong> ${subject || 'No subject'}</p>
+          <div style="margin-top: 15px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+            <p><strong>Message:</strong></p>
+            <p>${message.replace(/\n/g, '<br>')}</p>
           </div>
         </div>
       `,
@@ -58,14 +72,14 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { success: true, message: 'Message sent successfully' },
       { status: 200 }
     );
 
   } catch (error) {
     console.error('Error sending email:', error);
     return NextResponse.json(
-      { error: 'Failed to send email' },
+      { success: false, message: 'Failed to send message. Please try again.' },
       { status: 500 }
     );
   }
