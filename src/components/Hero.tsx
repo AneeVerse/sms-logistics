@@ -43,7 +43,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative isolate min-h-[90vh] sm:min-h-[93vh] overflow-hidden rounded-2xl">
+    <section className="relative isolate h-[85vh] sm:h-[90vh] md:h-[93vh] hero-mobile overflow-hidden rounded-2xl">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         {slides.map((s, i) => (
