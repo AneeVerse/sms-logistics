@@ -7,7 +7,7 @@ import { MdContentCopy } from 'react-icons/md';
 
 const FloatingActionButton = () => {
   const [open, setOpen] = useState(false);
-  const [showFloatingButtons, setShowFloatingButtons] = useState(false);
+  const [showFloatingButtons, setShowFloatingButtons] = useState(true);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text)

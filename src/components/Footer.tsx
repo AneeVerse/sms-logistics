@@ -162,17 +162,23 @@ export default function Footer() {
 							<Link href="/terms-of-service" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Terms of Service</Link>
 						</div>
 
-						{/* Right Side - Aneeverse Credit */}
-						<div className="text-center sm:text-right lg:text-right order-1 sm:order-2 lg:order-3">
-							<Link 
-								href="https://www.aneeverse.com/" 
-								target="_blank" 
-								rel="noopener noreferrer"
-								className="flex items-center justify-center sm:justify-end lg:justify-end space-x-2 text-sm text-white/70 hover:text-white transition-colors duration-200 group"
-							>
-								<span className="whitespace-nowrap">Designed & Managed by Aneeverse</span>
-							</Link>
-						</div>
+						 <div className="text-center mr-10 lg:text-right order-1 lg:order-3">
+              <a 
+                href="https://www.aneeverse.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center lg:justify-end space-x-2 text-sm text-gray-400 hover:text-white transition-colors duration-200 group"
+              >
+                <span className="whitespace-nowrap">Designed & Managed by Aneeverse</span>
+                <Image
+                  src="/images/aneeverse-logo.svg"
+                  alt="Aneeverse"
+                  width={16}
+                  height={16}
+                  className="brightness-0 invert"
+                />
+              </a>
+            </div>
 					</div>
 				</div>
 			</div>

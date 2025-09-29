@@ -54,10 +54,10 @@ export default function Navbar() {
         <div className={`hidden lg:flex items-center gap-8 xl:gap-10 transition-colors ${
           isScrolled ? 'text-gray-600' : 'text-white/90'
         }`}>
-          <Link href="#" className={`font-semibold uppercase transition-colors ${
+          <Link href="/" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>Home</Link>
-          <Link href="#about" className={`font-semibold uppercase transition-colors ${
+          <Link href="#why-choose-us" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>About</Link>
           <Link href="#services" className={`font-semibold uppercase transition-colors ${
@@ -74,7 +74,7 @@ export default function Navbar() {
             isScrolled ? 'text-gray-600' : 'text-white/90'
           }`}>+91 98765 43210</span>
           <Link
-            href="#track"
+            href="#contact"
             className="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-5 py-2.5 xl:py-3 text-sm font-medium shadow-md transition-colors"
           >
             <span className="hidden sm:block">Contact Us Now</span>
@@ -140,14 +140,14 @@ export default function Navbar() {
           <div className="flex-1 px-6 py-8">
             <nav className="space-y-6">
               <Link 
-                href="#" 
+                href="/" 
                 onClick={closeMobileMenu}
                 className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
               >
                 Home
               </Link>
               <Link 
-                href="#about" 
+                href="#why-choose-us" 
                 onClick={closeMobileMenu}
                 className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
               >
@@ -179,7 +179,7 @@ export default function Navbar() {
                   <span className="text-sm">+91 98765 43210</span>
                 </div>
                 <Link
-                  href="#track"
+                  href="#contact"
                   onClick={closeMobileMenu}
                   className="inline-flex items-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-sm font-medium shadow-md transition-colors w-full justify-center"
                 >
