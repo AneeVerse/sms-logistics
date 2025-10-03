@@ -75,7 +75,7 @@ export default function Hero() {
           <div className="mt-8 sm:mt-10 inline-flex">
             <button 
               onClick={() => {
-                const element = document.getElementById("our-solution");
+                const element = document.getElementById("contact");
                 if (element) {
                   element.scrollIntoView({ behavior: "smooth" });
                 }
