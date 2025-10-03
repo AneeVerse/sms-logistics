@@ -23,15 +23,18 @@ export default function Footer() {
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_0.9fr_1fr] gap-8 sm:gap-10 md:gap-12 lg:gap-16">
 					{/* Brand + subscribe */}
 					<div className="sm:col-span-2 lg:col-span-1">
-						<Link href="/" className="inline-flex items-center">
+						<Link href="/" className="inline-flex items-center gap-3">
 							<Image
-								src="/images/website-logo.png"
+								src="/images/SMS LOGO.png"
 								alt="SMS Logistics"
-								width={170}
-								height={40}
-								className="h-auto w-36 sm:w-44"
+								width={50}
+								height={50}
+								className="w-10 sm:w-12 h-auto"
 								priority
 							/>
+							<span className="text-xl sm:text-2xl font-extrabold text-[#12486f] -ml-3">
+								SMS LOGISTICS
+							</span>
 						</Link>
 						<p className="mt-4 sm:mt-5 text-white/70 leading-relaxed max-w-md text-sm sm:text-base">
 							Moving India, One Delivery at a Time. Since 2008.

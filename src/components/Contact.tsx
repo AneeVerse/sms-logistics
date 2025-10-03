@@ -51,7 +51,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-12 sm:py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 sm:gap-10 lg:gap-12">
           {/* Left: Heading and contact info cards */}
           <div className="flex flex-col justify-center">

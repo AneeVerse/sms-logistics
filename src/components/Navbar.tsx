@@ -65,7 +65,7 @@ export default function Navbar() {
           <Link href="#why-choose-us" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>About</Link>
-          <Link href="#services" className={`font-semibold uppercase transition-colors ${
+          <Link href="#our-solution" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>Services</Link>
           <Link href="#contact" className={`font-semibold uppercase transition-colors ${
@@ -75,9 +75,14 @@ export default function Navbar() {
 
         {/* Desktop Contact Info */}
         <div className="hidden lg:flex items-center gap-3 xl:gap-5">
-          <span className={`hidden xl:block text-lg transition-colors ${
-            isScrolled ? 'text-gray-600' : 'text-white/90'
-          }`}>+91 98765 43210</span>
+          <a 
+            href="tel:+919876543210" 
+            className={`hidden xl:block text-lg transition-all duration-200 hover:scale-105 active:scale-95 ${
+              isScrolled ? 'text-gray-600 hover:text-blue-600' : 'text-white/90 hover:text-white'
+            }`}
+          >
+            +91 98765 43210
+          </a>
           <Link
             href="#contact"
             className="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-5 py-2.5 xl:py-3 text-sm font-medium shadow-md transition-colors"
@@ -162,7 +167,7 @@ export default function Navbar() {
                 About
               </Link>
               <Link 
-                href="#services" 
+                href="#our-solution" 
                 onClick={closeMobileMenu}
                 className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
               >
@@ -180,12 +185,15 @@ export default function Navbar() {
             {/* Mobile Contact Info */}
             <div className="mt-12 pt-8 border-t border-white/10">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-white/90">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="2">
+                <a 
+                  href="tel:+919876543210" 
+                  className="flex items-center gap-3 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 active:scale-95 group"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-5 w-5 group-hover:animate-pulse" stroke="currentColor" strokeWidth="2">
                     <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.85 22 2 13.15 2 2a1 1 0 011-1h3.5a1 1 0 011 1c0 1.27.2 2.47.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/>
                   </svg>
-                  <span className="text-sm">+91 98765 43210</span>
-                </div>
+                  <span className="text-sm font-medium">+91 98765 43210</span>
+                </a>
                 <Link
                   href="#contact"
                   onClick={closeMobileMenu}
