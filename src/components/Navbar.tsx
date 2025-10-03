@@ -120,9 +120,9 @@ export default function Navbar() {
       )}
 
       {/* Mobile Menu Panel */}
-      <div className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-xl transform transition-transform duration-300 ease-in-out ${
+      <div className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
+      }`} style={{ backgroundColor: '#1e3a8a', backgroundImage: 'linear-gradient(to bottom right, #1e3a8a, #1e40af, #1e3a8a)' }}>
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/10">

@@ -16,11 +16,11 @@ type Marker = {
 };
 
 const MARKERS: Marker[] = [
-  { id: "delhi", name: "New Delhi", address: "National Capital Territory, New Delhi", left: 47, top: 40 },
-  { id: "mumbai", name: "Mumbai", address: "Financial Capital, Maharashtra", left: 45, top: 50, offsetY: -3 },
-  { id: "bangalore", name: "Bangalore", address: "Silicon Valley of India, Karnataka", left: 45, top: 55 },
-  { id: "kolkata", name: "Kolkata", address: "Cultural Capital, West Bengal", left: 55, top: 45, offsetY: -3 },
-  { id: "chennai", name: "Chennai", address: "Detroit of India, Tamil Nadu", left: 49, top: 60, offsetY: 2 },
+  { id: "delhi", name: "New Delhi", address: "National Capital Territory, New Delhi", left: 47, top: 35 },
+  { id: "mumbai", name: "Mumbai", address: "Financial Capital, Maharashtra", left: 45, top: 45, offsetY: -3 },
+  { id: "bangalore", name: "Bangalore", address: "Silicon Valley of India, Karnataka", left: 45, top: 50 },
+  { id: "kolkata", name: "Kolkata", address: "Cultural Capital, West Bengal", left: 55, top: 40, offsetY: -3 },
+  { id: "chennai", name: "Chennai", address: "Detroit of India, Tamil Nadu", left: 49, top: 55, offsetY: 2 },
 ];
 
 function GlobalPresence() {
@@ -69,15 +69,34 @@ function GlobalPresence() {
         {/* Map with markers - Full Width */}
         <div className="relative w-full overflow-hidden">
           {/* Background map image */}
-          <div className="relative w-full aspect-video sm:aspect-[16/8] md:aspect-[16/14] -mt-80">
+          <div className="relative w-full aspect-[4/4] sm:aspect-video md:aspect-[16/14] lg:aspect-[16/14] -mt-20 sm:-mt-40 md:-mt-50 lg:-mt-80">
             <Image
               src="/images/global/india.jpg"
               alt="India map"
               fill
               priority
               className="object-cover object-center"
-              style={{ transform: 'scale(1.2)', transformOrigin: 'center' }}
+              style={{ 
+                transform: 'scale(1.1) translateY(-5%)', 
+                transformOrigin: 'center',
+              }}
             />
+            
+            {/* Tablet-specific overlay for perfect positioning */}
+            <div className="hidden md:block lg:hidden absolute inset-0" 
+                 style={{ 
+                   transform: 'scale(1.05) translateY(-3%)', 
+                   transformOrigin: 'center',
+                   zIndex: 1
+                 }}>
+              <Image
+                src="/images/global/india.jpg"
+                alt="India map tablet"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </div>
 
             {/* Markers */}
             {MARKERS.map((m) => (
@@ -85,20 +104,20 @@ function GlobalPresence() {
                 key={m.id}
                 type="button"
                 onClick={() => setActiveId(activeId === m.id ? null : m.id)}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer`}
+                className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10`}
                 style={{ left: `${m.left}%`, top: `${m.top}%` }}
                 aria-label={m.name}
               >
                 <span className="relative inline-flex items-center justify-center">
-                  {/* Animated pulse ring - Perfect circles */}
-                  <span className="absolute aspect-square h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-full bg-[#2563eb]/50 animate-ping" style={{ borderRadius: '50%' }} />
-                  <span className="absolute aspect-square h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full bg-[#2563eb]/60 animate-pulse" style={{ borderRadius: '50%' }} />
-                  <span className="absolute aspect-square h-6 w-6 sm:h-7 sm:w-7 md:h-9 md:w-9 rounded-full bg-[#2563eb]/40 animate-ping" style={{ borderRadius: '50%', animationDelay: '0.5s' }} />
+                  {/* Animated pulse ring - Perfect circles - Mobile optimized */}
+                  <span className="absolute aspect-square h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 rounded-full bg-[#2563eb]/50 animate-ping" style={{ borderRadius: '50%' }} />
+                  <span className="absolute aspect-square h-5 w-5 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 rounded-full bg-[#2563eb]/60 animate-pulse" style={{ borderRadius: '50%' }} />
+                  <span className="absolute aspect-square h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-9 lg:w-9 rounded-full bg-[#2563eb]/40 animate-ping" style={{ borderRadius: '50%', animationDelay: '0.5s' }} />
                   
-                  {/* Main marker */}
-                  <span className="relative aspect-square h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full border-2 border-white bg-[#2563eb] grid place-items-center shadow-lg" style={{ borderRadius: '50%' }}>
+                  {/* Main marker - Mobile optimized */}
+                  <span className="relative aspect-square h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 rounded-full border-2 border-white bg-[#2563eb] grid place-items-center shadow-lg" style={{ borderRadius: '50%' }}>
                     {/* Simple dot */}
-                    <span className="aspect-square h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-white" style={{ borderRadius: '50%' }} />
+                    <span className="aspect-square h-1 w-1 sm:h-1.5 sm:w-1.5 md:h-2 md:w-2 lg:h-2.5 lg:w-2.5 rounded-full bg-white" style={{ borderRadius: '50%' }} />
                   </span>
                 </span>
               </button>
@@ -114,10 +133,10 @@ function GlobalPresence() {
                 {active.top < 40 ? (
                   // card below marker
                   <div className="flex flex-col items-center -translate-x-1/2 animate-in fade-in zoom-in duration-200">
-                    {/* Line starts from marker center */}
-                    <div className="h-[16px] sm:h-[20px] w-0.5 bg-[#2563eb]" />
-                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#2563eb]" />
-                    <div className="mt-2 sm:mt-3 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
+                    {/* Line starts from marker center - Mobile optimized */}
+                    <div className="h-[12px] sm:h-[16px] md:h-[20px] w-0.5 bg-[#2563eb]" />
+                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-[#2563eb]" />
+                    <div className="mt-1.5 sm:mt-2 md:mt-3 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[140px] sm:min-w-[180px] md:min-w-[220px] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 text-center">
                       <div className="font-semibold text-sm sm:text-base">{active.name}</div>
                       <div className="mt-1 text-xs sm:text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
@@ -125,13 +144,13 @@ function GlobalPresence() {
                 ) : (
                   // card above marker
                   <div className="flex flex-col items-center -translate-x-1/2 -translate-y-full animate-in fade-in zoom-in duration-200">
-                    <div className="mb-2 sm:mb-3 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
-                      <div className="font-semibold text-sm sm:text-base">{active.name}</div>
-                      <div className="mt-1 text-xs sm:text-sm text-white/95 whitespace-normal">{active.address}</div>
+                    <div className="mb-1.5 sm:mb-2 md:mb-3 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[140px] sm:min-w-[180px] md:min-w-[220px] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 text-center">
+                      <div className="font-semibold text-xs sm:text-sm md:text-base">{active.name}</div>
+                      <div className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs md:text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
-                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#2563eb]" />
-                    {/* Line ends at marker center */}
-                    <div className="h-[16px] sm:h-[20px] w-0.5 bg-[#2563eb]" />
+                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-[#2563eb]" />
+                    {/* Line ends at marker center - Mobile optimized */}
+                    <div className="h-[12px] sm:h-[16px] md:h-[20px] w-0.5 bg-[#2563eb]" />
                   </div>
                 )}
               </div>
