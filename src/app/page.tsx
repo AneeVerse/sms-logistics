@@ -12,19 +12,21 @@ import FloatingActionButton from "@/components/FloatingActionButton";
 
 export default function Home() {
   return (
-    <div className="font-sans min-h-screen">
+    <div className="font-sans min-h-screen overflow-x-hidden">
       <div className="relative">
         <Navbar />
         <Hero />
       </div>
-      <Service />
-      <HowItWorks />
-      <OurSolution />
-      <WhyChooseUs />
-      <Contact />
-      <GlobalPresence />
-      <FloatingPoster />
-      <Footer />
+      <div className="bg-white overflow-x-hidden max-w-full">
+        <Service />
+        <HowItWorks />
+        <OurSolution />
+        <WhyChooseUs />
+        <Contact />
+        <GlobalPresence />
+        <FloatingPoster />
+        <Footer />
+      </div>
       <FloatingActionButton />
     </div>
   );

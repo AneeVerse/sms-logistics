@@ -28,9 +28,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased bg-[#eef0f4]`}
       >
-        <div className="page-rounded m-2 sm:m-3 md:m-4 lg:m-6 bg-white overflow-x-hidden lg:overflow-x-visible">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

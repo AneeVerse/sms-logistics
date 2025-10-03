@@ -6,7 +6,7 @@ export default function WhyChooseUs() {
   return (
     <section 
       id="why-choose-us" 
-      className="relative py-12 sm:py-16 md:py-20 lg:py-24 -mx-2 sm:-mx-3 md:-mx-4 lg:-mx-6 bg-[#082E99]"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#082E99] overflow-x-hidden"
     >
       <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">

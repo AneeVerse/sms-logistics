@@ -33,7 +33,7 @@ export default function GlobalPresence() {
   return (
     <section
       id="global-presence"
-      className="relative -mx-2 sm:-mx-3 md:-mx-4 lg:-mx-6 py-12 sm:py-16 md:py-20 lg:py-24 bg-[#F7F9FC]"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#F7F9FC] overflow-x-hidden"
     >
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12">
         {/* Header */}

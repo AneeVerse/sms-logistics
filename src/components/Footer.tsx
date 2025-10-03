@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Footer() {
 
 	return (
-		<footer className="relative -mx-2 sm:-mx-3 md:-mx-4 lg:-mx-6 -mb-2 sm:-mb-3 md:-mb-4 lg:-mb-6 bg-[#070E31] text-white pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-3 md:pb-4 lg:pb-6">
+		<footer className="relative bg-[#070E31] text-white pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-3 md:pb-4 lg:pb-6 overflow-x-hidden">
 			{/* Decorative top-left graphic */}
 			<div className="pointer-events-none select-none absolute left-4 sm:left-6 md:left-12 lg:left-16 -top-8 sm:-top-12 md:-top-16 lg:-top-6 opacity-50" aria-hidden>
 				<Image
