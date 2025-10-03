@@ -66,7 +66,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative h-full flex flex-col justify-center items-center px-4 sm:px-6 md:px-8 lg:px-12 pb-8 pt-40 sm:pt-24 md:pt-32 lg:pt-40">
         <div className="text-white text-center max-w-5xl mx-auto">
-          <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] sm:leading-[1.05] tracking-[0.0001em] transition-opacity duration-700">
+          <h1 className="uppercase text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-[1.1] tracking-[0.03em] transition-opacity duration-700">
             {slides[index].heading}
           </h1>
           <p className="mt-6 sm:mt-7 max-w-2xl lg:max-w-3xl mx-auto text-white/90 text-sm sm:text-base lg:text-lg leading-relaxed px-2 sm:px-0 transition-opacity duration-700">
