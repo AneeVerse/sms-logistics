@@ -165,7 +165,7 @@ export default function Footer() {
 							<Link href="/terms-of-service" className="hover:text-white transition-colors duration-200 whitespace-nowrap">Terms of Service</Link>
 						</div>
 
-						 <div className="text-center mr-10 lg:text-right order-1 lg:order-3">
+						 <div className="text-center lg:mr-10 lg:text-right order-1 lg:order-3">
               <a 
                 href="https://www.aneeverse.com/" 
                 target="_blank" 
