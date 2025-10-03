@@ -96,45 +96,28 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom-right carousel controls */}
-      <div className="pointer-events-none absolute bottom-4 sm:bottom-6 right-3 sm:right-4 md:right-6 lg:right-8 flex items-end justify-end">
-        <div className="pointer-events-auto rounded-xl sm:rounded-2xl shadow-xl overflow-hidden flex flex-col">
+      {/* Bottom slide indicator buttons */}
+      <div className="absolute bottom-4 sm:bottom-6 right-10 sm:right-4 md:right-15 lg:right-22 flex items-center gap-1 sm:gap-2">
+        {slides.map((slide, i) => (
           <button
+            key={slide.id}
             type="button"
-            onClick={next}
-            className="h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16 inline-flex items-center justify-center bg-white text-gray-900 hover:bg-blue-600 hover:text-white transition-colors"
-            aria-label="Next slide"
+            onClick={() => setIndex(i)}
+            className={`group flex flex-col items-center gap-1 sm:gap-1.5 transition-all duration-300 ${
+              i === index ? 'opacity-100' : 'opacity-60 hover:opacity-100'
+            }`}
+            aria-label={`Go to slide ${i + 1}`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
-              <path d="M5 12h14" strokeLinecap="round" />
-              <path d="M13 5l7 7-7 7" strokeLinecap="round" />
-            </svg>
+            <span className={`text-xs sm:text-sm font-bold tracking-wide transition-colors ${
+              i === index ? 'text-white' : 'text-white/70 group-hover:text-white'
+            }`}>
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div className={`h-[2px] sm:h-[3px] w-8 sm:w-10 rounded-full transition-all duration-300 ${
+              i === index ? 'bg-blue-600' : 'bg-white/40 group-hover:bg-white/60'
+            }`} />
           </button>
-          <button
-            type="button"
-            onClick={prev}
-            className="h-11 w-11 sm:h-14 sm:w-14 md:h-16 md:w-16 inline-flex items-center justify-center bg-white text-gray-900 hover:bg-blue-600 hover:text-white transition-colors"
-            aria-label="Previous slide"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 md:h-6 w-4 sm:w-5 md:w-6" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
-              <path d="M19 12H5" strokeLinecap="round" />
-              <path d="M11 5l-7 7 7 7" strokeLinecap="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Bottom-left slide indicator */}
-      <div className="absolute bottom-4 sm:bottom-6 right-20 md:right-30 lg:right-35 flex flex-col items-start gap-2">
-        <div className="text-white/95 text-xs sm:text-sm font-semibold tracking-wide">
-          {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-        </div>
-        <div className="h-[2px] sm:h-[3px] w-20 sm:w-28 bg-white/40 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-blue-600 transition-all duration-500"
-            style={{ width: `${((index + 1) / slides.length) * 100}%` }}
-          />
-        </div>
+        ))}
       </div>
     </section>
   );

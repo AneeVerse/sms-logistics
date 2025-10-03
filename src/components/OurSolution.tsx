@@ -18,7 +18,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "fleet",
     label: "Fleet Ownership & Contracting",
-    imageSrc: "/images/our-solution/road.avif",
+    imageSrc: "/images/our-solution/services/Fleet Ownership & Contracting.png",
     imageAlt: "Modern fleet of trucks",
     heading: "Fleet Ownership & Contracting",
     description: "Leverage the strength and dependability of our own modern, well-maintained fleet for hassle-free, end-to-end transport solutions. Our team manages every detail—from pick-up scheduling to delivery tracking—ensuring shipments are handled with utmost care and delivered right on time. With us, you get the consistency, transparency, and quality that only a true fleet owner can provide.",
@@ -26,7 +26,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "vendor",
     label: "Vendor Network Access",
-    imageSrc: "/images/our-solution/ship.avif",
+    imageSrc: "/images/our-solution/services/Vendor Network Access.png",
     imageAlt: "Vendor network logistics",
     heading: "Vendor Network Access",
     description: "Unlock a broad spectrum of transport capabilities with our trusted vendor network. We source specialized vehicles and equipment through long-standing partnerships, enabling us to accommodate even the most unique or large-scale logistics requirements. Our network ensures flexibility, expanded coverage, and the right fleet for every project—no matter how complex your needs.",
@@ -34,7 +34,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "customized",
     label: "Customized Logistics",
-    imageSrc: "/images/our-solution/railway.avif",
+    imageSrc: "/images/our-solution/services/Customized Logistics.png",
     imageAlt: "Customized logistics solutions",
     heading: "Customized Logistics",
     description: "Every business is unique—and so are their logistics needs. We work closely with you to create customized, cost-efficient transport and distribution solutions tailored precisely to your industry, scale, and operational workflows. Whether it's dedicated supply chains, time-sensitive consignments, or multi-city coordination, we design logistics that truly fit your business.",
@@ -42,7 +42,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "pan-india",
     label: "Pan-India Operations",
-    imageSrc: "/images/our-solution/airway.avif",
+    imageSrc: "/images/our-solution/services/Pan-India Operations.png",
     imageAlt: "Pan-India logistics network",
     heading: "Pan-India Operations",
     description: "Experience seamless connectivity to every corner of India. Our widespread operational network spans all major cities, industrial hubs, and emerging markets, delivering uninterrupted logistics support wherever your business takes you. With reliable last-mile connectivity and deep local expertise, your cargo arrives safely—no destination is out of reach.",
@@ -50,7 +50,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "lcv",
     label: "Light Commercial Vehicles (LCV)",
-    imageSrc: "/images/our-solution/road.avif",
+    imageSrc: "/images/our-solution/services/Light Commercial Vehicles (LCV).png",
     imageAlt: "Light commercial vehicles",
     heading: "Light Commercial Vehicles (LCV)",
     description: "Perfect for fast-paced urban businesses, our LCVs are designed for quick, agile, and cost-effective delivery within cities and surrounding areas. From e-commerce parcels to time-sensitive documents and small retail consignments, we ensure flexible routing and prompt service for every short-haul load.",
@@ -58,7 +58,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "mcv",
     label: "Medium Commercial Vehicles (MCV)",
-    imageSrc: "/images/our-solution/road.avif",
+    imageSrc: "/images/our-solution/services/Medium Commercial Vehicles (MCV).png",
     imageAlt: "Medium commercial vehicles",
     heading: "Medium Commercial Vehicles (MCV)",
     description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",
@@ -66,7 +66,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "hcv",
     label: "Heavy Commercial Vehicles (HCV)",
-    imageSrc: "/images/our-solution/road.avif",
+    imageSrc: "/images/our-solution/services/Heavy Commercial Vehicles (HCV).png",
     imageAlt: "Heavy commercial vehicles",
     heading: "Heavy Commercial Vehicles (HCV)",
     description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",
@@ -74,7 +74,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "container",
     label: "Containerized Cargo Movement",
-    imageSrc: "/images/our-solution/ship.avif",
+    imageSrc: "/images/our-solution/services/Containerized Cargo Movement.png",
     imageAlt: "Containerized cargo transport",
     heading: "Containerized Cargo Movement",
     description: "Protect your cargo from weather and theft while maximizing space with our containerized solutions. Ideal for valuable, fragile, or sensitive goods, our container trucks and trailers offer secure, standardized transport—ensuring safe passage from source to destination, no matter the distance or road conditions.",
@@ -82,7 +82,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "specialized",
     label: "Specialized Fleet Sourcing",
-    imageSrc: "/images/our-solution/railway.avif",
+    imageSrc: "/images/our-solution/services/Specialized Fleet Sourcing.png",
     imageAlt: "Specialized fleet vehicles",
     heading: "Specialized Fleet Sourcing",
     description: "Need something specific? We extend our services with access to rare and specialized vehicles—including 40ft trailers, pullers, multi-axle carriers, and more—via our vast network. No matter how unique or demanding your consignment, we find and deploy the right transport so you never have to compromise on logistics.",

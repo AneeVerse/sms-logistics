@@ -38,15 +38,20 @@ export default function Navbar() {
           : 'py-4 sm:py-6 text-white'
       }`}>
         <div className="flex items-center gap-3">
-          <Link href="/" className="inline-flex items-center" onClick={closeMobileMenu}>
+          <Link href="/" className="inline-flex items-center gap-3" onClick={closeMobileMenu}>
             <Image
-              src="/images/website-logo.png"
+              src="/images/SMS LOGO.png"
               alt="SMS Logistics"
-              width={180}
-              height={40}
-              className="w-36 sm:w-44 md:w-62 h-auto"
+              width={50}
+              height={50}
+              className="w-10 sm:w-12 h-auto"
               priority
             />
+            <span className={`text-xl sm:text-2xl font-extrabold transition-colors -ml-3 ${
+              isScrolled ? 'text-[#12486f]' : 'text-[#12486f]'
+            }`}>
+              SMS LOGISTICS
+            </span>
           </Link>
         </div>
 
@@ -70,7 +75,7 @@ export default function Navbar() {
 
         {/* Desktop Contact Info */}
         <div className="hidden lg:flex items-center gap-3 xl:gap-5">
-          <span className={`hidden xl:block text-sm transition-colors ${
+          <span className={`hidden xl:block text-lg transition-colors ${
             isScrolled ? 'text-gray-600' : 'text-white/90'
           }`}>+91 98765 43210</span>
           <Link
@@ -116,14 +121,17 @@ export default function Navbar() {
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/10">
-            <Link href="/" onClick={closeMobileMenu}>
+            <Link href="/" onClick={closeMobileMenu} className="inline-flex items-center gap-2">
               <Image
-                src="/images/website-logo.png"
+                src="/images/SMS LOGO.png"
                 alt="SMS Logistics"
-                width={140}
-                height={35}
-                className="h-auto"
+                width={40}
+                height={40}
+                className="h-auto w-10"
               />
+              <span className="text-xl font-bold text-blue-400">
+                SMS Logistic
+              </span>
             </Link>
             <button 
               onClick={closeMobileMenu}
