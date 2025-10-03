@@ -26,8 +26,23 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open and ensure no layout shift issues
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const originalOverflow = document.body.style.overflow;
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = originalOverflow || '';
+    }
+    return () => {
+      document.body.style.overflow = originalOverflow || '';
+    };
+  }, [isMobileMenuOpen]);
+
   return (
-    <div className={`inset-x-0 top-0 z-20 transition-all duration-300 ${
+    <>
+      <div className={`inset-x-0 top-0 z-[10002] transition-all duration-300 ${
       isScrolled 
         ? 'fixed bg-white/95 backdrop-blur-md shadow-lg' 
         : 'absolute'
@@ -113,14 +128,15 @@ export default function Navbar() {
           )}
         </button>
       </nav>
+    </div>
 
-      {/* Mobile Menu Overlay */}
+    {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMobileMenu} />
+        <div className="lg:hidden fixed inset-0 z-[11000] bg-black/50 backdrop-blur-sm" onClick={closeMobileMenu} />
       )}
 
       {/* Mobile Menu Panel */}
-      <div className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
+      <div className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-xl transform transition-transform duration-300 ease-in-out z-[11001] ${
         isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`} style={{ backgroundColor: '#1e3a8a', backgroundImage: 'linear-gradient(to bottom right, #1e3a8a, #1e40af, #1e3a8a)' }}>
         <div className="flex flex-col h-full">
@@ -203,11 +219,10 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
+        </div>
+        </div>
+    </>
   );
 }
-
 
