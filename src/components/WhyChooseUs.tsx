@@ -56,16 +56,16 @@ export default function WhyChooseUs() {
                 <div className="h-20 w-20 sm:h-24 sm:w-24 lg:h-28 lg:w-28 rounded-2xl bg-blue-500/30 flex items-center justify-center flex-shrink-0">
                   <Image 
                     src="/images/why-choose-us/earth.png" 
-                    alt="Fleet operations" 
+                    alt="Network operations" 
                     width={56} 
                     height={56} 
                     className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">350+</div>
-                  <div className="text-white/90 text-sm sm:text-base font-medium">Fleets Moved Monthly</div>
-                  <div className="text-white/70 text-xs leading-relaxed mt-1">Serving hundreds of businesses across India, every month.</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">50+</div>
+                  <div className="text-white/90 text-sm sm:text-base font-medium">Network Partners</div>
+                  <div className="text-white/70 text-xs leading-relaxed mt-1">Extensive logistics network covering all major cities across India.</div>
                 </div>
               </div>
             </div>

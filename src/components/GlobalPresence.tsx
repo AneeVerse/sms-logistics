@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MdLocationOn } from "react-icons/md";
 // Flag emojis for countries
 
@@ -21,10 +21,30 @@ const MARKERS: Marker[] = [
   { id: "bangalore", name: "Bangalore", address: "Silicon Valley of India, Karnataka", left: 45, top: 50 },
   { id: "kolkata", name: "Kolkata", address: "Cultural Capital, West Bengal", left: 55, top: 40, offsetY: -3 },
   { id: "chennai", name: "Chennai", address: "Detroit of India, Tamil Nadu", left: 49, top: 55, offsetY: 2 },
+  { id: "ahmedabad", name: "Ahmedabad", address: "Industrial Hub of Western India", left: 41, top: 42, offsetY: -2 },
 ];
 
 function GlobalPresence() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  // Handle click outside to close active marker
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // If we have an active marker and the click is outside any marker button
+      if (activeId && mapRef.current && event.target && !(event.target as Element).closest('button')) {
+        setActiveId(null);
+      }
+    }
+
+    // Add event listener to the document
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeId]);
 
   const active = MARKERS.find((m) => m.id === activeId) ?? null;
 
@@ -54,6 +74,7 @@ function GlobalPresence() {
               { name: "Bangalore" },
               { name: "Kolkata" },
               { name: "Chennai" },
+              { name: "Gujarat" },
             ].map((city) => (
               <div key={city.name} className="inline-flex items-center gap-2 sm:gap-3">
                 <MdLocationOn className="text-xl sm:text-2xl md:text-3xl text-[#2563eb]" />
@@ -69,7 +90,7 @@ function GlobalPresence() {
         {/* Map with markers - Full Width */}
         <div className="relative w-full overflow-hidden">
           {/* Background map image */}
-          <div className="relative w-full aspect-[4/4] sm:aspect-video md:aspect-[16/14] lg:aspect-[16/14] -mt-20 sm:-mt-40 md:-mt-50 lg:-mt-80">
+          <div ref={mapRef} className="relative w-full aspect-[4/4] sm:aspect-video md:aspect-[16/14] lg:aspect-[16/14] -mt-20 sm:-mt-40 md:-mt-50 lg:-mt-80">
             <Image
               src="/images/global/india.jpg"
               alt="India map"
