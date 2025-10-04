@@ -167,24 +167,47 @@ export default function OurSolution() {
 
         {/* Tablet & Desktop: Grid Layout */}
         <div className="hidden sm:block">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-3 max-w-6xl mx-auto">
-            {SERVICES.map((s) => {
-              const isActive = active === s.key;
-              return (
-                <button
-                  key={s.key}
-                  type="button"
-                  onClick={() => setActive(s.key)}
-                  className={`relative px-3 md:px-4 py-2.5 md:py-3 text-xs md:text-sm font-medium rounded-xl transition-all duration-300 text-center ${
-                    isActive 
-                      ? "bg-blue-600 text-white shadow-md shadow-blue-600/25" 
-                      : "bg-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-200"
-                  }`}
-                >
-                  <span className="block">{s.label}</span>
-                </button>
-              );
-            })}
+          <div className="flex flex-col items-center gap-2 md:gap-3 max-w-6xl mx-auto">
+            {/* First row */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
+              {SERVICES.slice(0, 3).map((s) => {
+                const isActive = active === s.key;
+                return (
+                  <button
+                    key={s.key}
+                    type="button"
+                    onClick={() => setActive(s.key)}
+                    className={`relative px-3 md:px-4 py-2.5 md:py-3 text-xs md:text-sm font-medium rounded-xl transition-all duration-300 text-center ${
+                      isActive 
+                        ? "bg-blue-600 text-white shadow-md shadow-blue-600/25" 
+                        : "bg-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+                    }`}
+                  >
+                    <span className="block">{s.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+            {/* Second row */}
+            <div className="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
+              {SERVICES.slice(3).map((s) => {
+                const isActive = active === s.key;
+                return (
+                  <button
+                    key={s.key}
+                    type="button"
+                    onClick={() => setActive(s.key)}
+                    className={`relative px-3 md:px-4 py-2.5 md:py-3 text-xs md:text-sm font-medium rounded-xl transition-all duration-300 text-center ${
+                      isActive 
+                        ? "bg-blue-600 text-white shadow-md shadow-blue-600/25" 
+                        : "bg-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+                    }`}
+                  >
+                    <span className="block">{s.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

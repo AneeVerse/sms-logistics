@@ -22,8 +22,8 @@ const steps: Step[] = [
   },
   {
     num: "03",
-    title: "Seamless Pickup & Transit",
-    desc: "We handle every detail—from pick-up scheduling to secure loading and route planning.",
+    title: "Real Time Tracking",
+    desc: "We handle every detail from pick-up scheduling to secure loading and route planning.",
     src: "/images/how-it-works/3.png",
   },
   {

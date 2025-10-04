@@ -144,7 +144,7 @@ export default function OurFleet() {
 
         {/* Tablet & Desktop: Grid Layout */}
         <div className="hidden sm:block">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-3 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-6xl mx-auto">
             {SERVICES.map((s) => {
               const isActive = active === s.key;
               return (
