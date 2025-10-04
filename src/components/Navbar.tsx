@@ -42,7 +42,7 @@ export default function Navbar() {
       <div className={`inset-x-0 top-0 z-[10002] transition-all duration-300 ${
       isScrolled 
         ? 'fixed bg-white/95 backdrop-blur-md shadow-lg' 
-        : 'absolute'
+        : 'absolute bg-black/20 backdrop-blur-md w-360 mx-auto rounded-xl'
     }`}>
       <nav className={`mx-auto max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-12 flex items-center justify-between transition-all duration-300 ${
         isScrolled 
@@ -86,15 +86,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Contact Info */}
-        <div className="hidden lg:flex items-center gap-3 xl:gap-5">
-          <a 
-            href="tel:+919876543210" 
-            className={`hidden xl:block text-lg transition-all duration-200 hover:scale-105 active:scale-95 ${
-              isScrolled ? 'text-gray-600 hover:text-blue-600' : 'text-white/90 hover:text-white'
-            }`}
-          >
-            +91 98765 43210
-          </a>
+        <div className="hidden lg:flex items-center">
           <Link
             href="#contact"
             className="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-5 py-2.5 xl:py-3 text-sm font-medium shadow-md transition-colors"

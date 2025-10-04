@@ -44,7 +44,7 @@ const SERVICES: ServiceConfig[] = [
 ];
 
 export default function OurFleet() {
-  const [active, setActive] = useState<ServiceKey>("fleet");
+  const [active, setActive] = useState<ServiceKey>("lcv");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -74,13 +74,13 @@ export default function OurFleet() {
       {/* Eyebrow */}
       <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
         <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
-        <span className="text-gray-600 font-normal text-sm sm:text-base">OUR SERVICES SECTION</span>
+        <span className="text-gray-600 font-normal text-sm sm:text-base">OUR FLEET SECTION</span>
       </div>
 
       {/* Title */}
       <h2 className="mt-4 sm:mt-5 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
-        <span className="text-gray-900">Our Logistics</span>{" "}
-        <span className="text-blue-600">Solutions</span>
+        <span className="text-gray-900">Our</span>{" "}
+        <span className="text-blue-600">Fleet</span>
       </h2>
 
       {/* Tabs */}
