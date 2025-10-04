@@ -18,8 +18,8 @@ const SERVICES: ServiceConfig[] = [
 
   {
     key: "lcv",
-    label: "Light Commercial Vehicles (LCV)",
-    imageSrc: "/images/our-solution/services/Light Commercial Vehicles (LCV).png",
+    label: "Containerized Vehicles",
+    imageSrc: "/images/our-solution/services/Containerized Vehicles.png",
     imageAlt: "Light commercial vehicles",
     heading: "Light Commercial Vehicles (LCV)",
     description: "Perfect for fast-paced urban businesses, our LCVs are designed for quick, agile, and cost-effective delivery within cities and surrounding areas. From e-commerce parcels to time-sensitive documents and small retail consignments, we ensure flexible routing and prompt service for every short-haul load.",
@@ -70,7 +70,7 @@ export default function OurFleet() {
   };
 
   return (
-    <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
+    <section id="our-fleet" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
       {/* Eyebrow */}
       <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
         <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
@@ -79,7 +79,7 @@ export default function OurFleet() {
 
       {/* Title */}
       <h2 className="mt-4 sm:mt-5 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
-        <span className="text-gray-900">Our</span>{" "}
+        <span className="text-gray-900">Our Owned</span>{" "}
         <span className="text-blue-600">Fleet</span>
       </h2>
 

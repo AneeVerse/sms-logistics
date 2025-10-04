@@ -21,7 +21,7 @@ const MARKERS: Marker[] = [
   { id: "bangalore", name: "Bangalore", address: "Silicon Valley of India, Karnataka", left: 45, top: 50 },
   { id: "kolkata", name: "Kolkata", address: "Cultural Capital, West Bengal", left: 55, top: 40, offsetY: -3 },
   { id: "chennai", name: "Chennai", address: "Detroit of India, Tamil Nadu", left: 49, top: 55, offsetY: 2 },
-  { id: "ahmedabad", name: "Ahmedabad", address: "Industrial Hub of Western India", left: 43, top: 41, offsetY: -2 },
+  { id: "gujrat", name: "Gujrat", address: "Industrial Hub of Western India", left: 43, top: 41, offsetY: -2 },
 ];
 
 function GlobalPresence() {
