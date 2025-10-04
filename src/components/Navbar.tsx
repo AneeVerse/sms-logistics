@@ -3,42 +3,39 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    document.body.style.overflow = "auto";
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100);
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Lock body scroll when mobile menu is open and ensure no layout shift issues
-  useEffect(() => {
-    if (typeof document === 'undefined') return;
-    const originalOverflow = document.body.style.overflow;
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = originalOverflow || '';
-    }
-    return () => {
-      document.body.style.overflow = originalOverflow || '';
-    };
-  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -201,15 +198,6 @@ export default function Navbar() {
             {/* Mobile Contact Info */}
             <div className="mt-12 pt-8 border-t border-white/10">
               <div className="space-y-4">
-                <a 
-                  href="tel:+919876543210" 
-                  className="flex items-center gap-3 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 active:scale-95 group"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-5 w-5 group-hover:animate-pulse" stroke="currentColor" strokeWidth="2">
-                    <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 011 1V21a1 1 0 01-1 1C10.85 22 2 13.15 2 2a1 1 0 011-1h3.5a1 1 0 011 1c0 1.27.2 2.47.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"/>
-                  </svg>
-                  <span className="text-sm font-medium">+91 98765 43210</span>
-                </a>
                 <Link
                   href="#contact"
                   onClick={closeMobileMenu}

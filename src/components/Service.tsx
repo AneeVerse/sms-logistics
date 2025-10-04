@@ -10,7 +10,7 @@ export default function Service() {
         <div className="order-1 lg:order-1">
           <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium">
             <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
-            <span className="text-gray-600 font-normal text-sm sm:text-base">LOGIX AT YOUR SERVICE</span>
+            <span className="text-gray-600 font-normal text-sm sm:text-base">SMS LOGISTICS AT YOUR SERVICE</span>
           </div>
 
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
