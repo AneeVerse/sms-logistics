@@ -13,20 +13,88 @@ type Marker = {
   left: number; // 0-100
   top: number; // 0-100
   offsetY?: number; // fine-tune connector alignment (px)
+  // Mobile-specific positioning for zoomed map
+  mobileLeft?: number; // 0-100
+  mobileTop?: number; // 0-100
 };
 
 const MARKERS: Marker[] = [
-  { id: "delhi", name: "New Delhi", address: "National Capital Territory, New Delhi", left: 47, top: 35 },
-  { id: "mumbai", name: "Mumbai", address: "Financial Capital, Maharashtra", left: 45, top: 45, offsetY: -3 },
-  { id: "bangalore", name: "Bangalore", address: "Silicon Valley of India, Karnataka", left: 45, top: 50 },
-  { id: "kolkata", name: "Kolkata", address: "Cultural Capital, West Bengal", left: 55, top: 40, offsetY: -3 },
-  { id: "chennai", name: "Chennai", address: "Detroit of India, Tamil Nadu", left: 49, top: 55, offsetY: 2 },
-  { id: "gujrat", name: "Gujrat", address: "Industrial Hub of Western India", left: 43, top: 41, offsetY: -2 },
+  { 
+    id: "delhi", 
+    name: "New Delhi", 
+    address: "National Capital Territory, New Delhi", 
+    left: 47, 
+    top: 35,
+    mobileLeft: 44,
+    mobileTop: 32
+  },
+  { 
+    id: "mumbai", 
+    name: "Mumbai", 
+    address: "Financial Capital, Maharashtra", 
+    left: 45, 
+    top: 45, 
+    offsetY: -3,
+    mobileLeft: 40,
+    mobileTop: 42
+  },
+  { 
+    id: "bangalore", 
+    name: "Bangalore", 
+    address: "Silicon Valley of India, Karnataka", 
+    left: 41, 
+    top: 50,
+    mobileLeft: 42,
+    mobileTop: 47
+  },
+  { 
+    id: "kolkata", 
+    name: "Kolkata", 
+    address: "Cultural Capital, West Bengal", 
+    left: 55, 
+    top: 40, 
+    offsetY: -3,
+    mobileLeft: 56,
+    mobileTop: 35
+  },
+  { 
+    id: "chennai", 
+    name: "Chennai", 
+    address: "Detroit of India, Tamil Nadu", 
+    left: 49, 
+    top: 55, 
+    offsetY: 2,
+    mobileLeft: 48,
+    mobileTop: 50
+  },
+  { 
+    id: "gujrat", 
+    name: "Gujrat", 
+    address: "Industrial Hub of Western India", 
+    left: 43, 
+    top: 41, 
+    offsetY: -2,
+    mobileLeft: 41,
+    mobileTop: 38
+  },
 ];
 
 function GlobalPresence() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const mapRef = useRef<HTMLDivElement>(null);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Handle click outside to close active marker
   useEffect(() => {
@@ -90,7 +158,7 @@ function GlobalPresence() {
         {/* Map with markers - Full Width */}
         <div className="relative w-full overflow-hidden">
           {/* Background map image */}
-          <div ref={mapRef} className="relative w-full aspect-[4/4] sm:aspect-video md:aspect-[16/14] lg:aspect-[16/14] -mt-20 sm:-mt-40 md:-mt-50 lg:-mt-80">
+          <div ref={mapRef} className="relative w-full aspect-[3/4] sm:aspect-video md:aspect-[16/14] lg:aspect-[16/14] -mt-20 sm:-mt-40 md:-mt-50 lg:-mt-80">
             <Image
               src="/images/global/india.jpg"
               alt="India map"
@@ -98,10 +166,25 @@ function GlobalPresence() {
               priority
               className="object-cover object-center"
               style={{ 
-                transform: 'scale(1.1) translateY(-5%)', 
+                transform: 'scale(1.4) translateY(-8%)', 
                 transformOrigin: 'center',
               }}
             />
+            
+            {/* Desktop/Tablet overlay with original zoom */}
+            <div className="hidden sm:block absolute inset-0">
+              <Image
+                src="/images/global/india.jpg"
+                alt="India map desktop"
+                fill
+                priority
+                className="object-cover object-center"
+                style={{ 
+                  transform: 'scale(1.1) translateY(-5%)', 
+                  transformOrigin: 'center',
+                }}
+              />
+            </div>
             
             {/* Tablet-specific overlay for perfect positioning */}
             <div className="hidden md:block lg:hidden absolute inset-0" 
@@ -120,15 +203,19 @@ function GlobalPresence() {
             </div>
 
             {/* Markers */}
-            {MARKERS.map((m) => (
-              <button
-                key={m.id}
-                type="button"
-                onClick={() => setActiveId(activeId === m.id ? null : m.id)}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10`}
-                style={{ left: `${m.left}%`, top: `${m.top}%` }}
-                aria-label={m.name}
-              >
+            {MARKERS.map((m) => {
+              const leftPos = isMobile ? (m.mobileLeft || m.left) : m.left;
+              const topPos = isMobile ? (m.mobileTop || m.top) : m.top;
+              
+              return (
+                <button
+                  key={m.id}
+                  type="button"
+                  onClick={() => setActiveId(activeId === m.id ? null : m.id)}
+                  className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10`}
+                  style={{ left: `${leftPos}%`, top: `${topPos}%` }}
+                  aria-label={m.name}
+                >
                 <span className="relative inline-flex items-center justify-center">
                   {/* Animated pulse ring - Perfect circles - Mobile optimized */}
                   <span className="absolute aspect-square h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 rounded-full bg-[#2563eb]/50 animate-ping" style={{ borderRadius: '50%' }} />
@@ -142,16 +229,20 @@ function GlobalPresence() {
                   </span>
                 </span>
               </button>
-            ))}
+              );
+            })}
 
             {/* Tooltip card for active marker */}
             {active && (
               <div
                 className="absolute z-10"
-                style={{ left: `${active.left}%`, top: `${active.top}%` }}
+                style={{ 
+                  left: `${isMobile ? (active.mobileLeft || active.left) : active.left}%`, 
+                  top: `${isMobile ? (active.mobileTop || active.top) : active.top}%` 
+                }}
               >
                 {/* Tooltip group - line connects to center of marker */}
-                {active.top < 40 ? (
+                {(isMobile ? (active.mobileTop || active.top) : active.top) < 40 ? (
                   // card below marker
                   <div className="flex flex-col items-center -translate-x-1/2 animate-in fade-in zoom-in duration-200">
                     {/* Line starts from marker center - Mobile optimized */}

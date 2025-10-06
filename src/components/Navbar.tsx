@@ -80,9 +80,6 @@ export default function Navbar() {
           <Link href="#our-solution" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>Services</Link>
-          <Link href="#our-fleet" className={`font-semibold uppercase transition-colors ${
-            isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
-          }`}>Our Fleet</Link>
           <Link href="#contact" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>Contact us</Link>
@@ -180,13 +177,6 @@ export default function Navbar() {
                 className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
               >
                 Services
-              </Link>
-              <Link 
-                href="#our-fleet" 
-                onClick={closeMobileMenu}
-                className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
-              >
-                Our Fleet
               </Link>
               <Link 
                 href="#contact" 
