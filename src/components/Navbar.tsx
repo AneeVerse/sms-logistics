@@ -42,7 +42,7 @@ export default function Navbar() {
       <div className={`inset-x-0 top-0 z-[10002] transition-all duration-300 ${
       isScrolled 
         ? 'fixed bg-white/95 backdrop-blur-md shadow-lg' 
-        : 'absolute bg-white/20 backdrop-blur-md w-86 md:w-182 lg:w-366 mx-auto rounded-xl'
+        : 'absolute bg-white/20 backdrop-blur-md w-99 md:w-182 lg:w-366 mx-auto rounded-xl'
     }`}>
       <nav className={`mx-auto max-w-[1600px] px-4 sm:px-6 md:px-10 lg:px-12 flex items-center justify-between transition-all duration-300 ${
         isScrolled 
