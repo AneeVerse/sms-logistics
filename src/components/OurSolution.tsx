@@ -66,6 +66,19 @@ export default function OurSolution() {
 
   const activeConfig = SERVICES.find((s) => s.key === active)!;
 
+  // Auto tab change functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(prevActive => {
+        const currentIndex = SERVICES.findIndex(s => s.key === prevActive);
+        const nextIndex = (currentIndex + 1) % SERVICES.length;
+        return SERVICES[nextIndex].key;
+      });
+    }, 3000); // Change tab every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

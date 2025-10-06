@@ -50,6 +50,19 @@ export default function OurFleet() {
 
   const activeConfig = SERVICES.find((s) => s.key === active)!;
 
+  // Auto tab change functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(prevActive => {
+        const currentIndex = SERVICES.findIndex(s => s.key === prevActive);
+        const nextIndex = (currentIndex + 1) % SERVICES.length;
+        return SERVICES[nextIndex].key;
+      });
+    }, 3000); // Change tab every 2 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -181,6 +194,10 @@ export default function OurFleet() {
                   sizes="(max-width: 1024px) 100vw, 48vw"
                   className="object-cover"
                   priority
+                />
+                {/* Blue color overlay instead of background image */}
+                <div 
+                  className="absolute inset-0 bg-blue-600/20"
                 />
               </div>
             </div>
