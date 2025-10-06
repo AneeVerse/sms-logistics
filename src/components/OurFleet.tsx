@@ -19,7 +19,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "lcv",
     label: "Containerized Vehicles",
-    imageSrc: "/images/client resources/Containerised Vehicle.png",
+    imageSrc: "/images/client resources/Containerised1.jpg",
     imageAlt: "Containerized vehicles",
     heading: "Containerized Vehicles",
     description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",
@@ -58,7 +58,7 @@ export default function OurFleet() {
         const nextIndex = (currentIndex + 1) % SERVICES.length;
         return SERVICES[nextIndex].key;
       });
-    }, 3000); // Change tab every 2 seconds
+    }, 5000); // Change tab every 2 seconds
 
     return () => clearInterval(interval);
   }, []);
