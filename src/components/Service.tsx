@@ -26,22 +26,22 @@ export default function Service() {
 
           <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4">
             {/* Mission & Vision Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5">
-                <div className="text-blue-600 text-sm sm:text-base font-semibold mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7">
+                <div className="text-blue-600 text-base sm:text-lg md:text-xl font-semibold mb-3">
                   Mission
                 </div>
-                <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                   To deliver reliable, efficient, and customized logistics solutions, 
                   simplifying the way businesses move goods across India.
                 </p>
               </div>
               
-              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5">
-                <div className="text-blue-600 text-sm sm:text-base font-semibold mb-2">
+              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7">
+                <div className="text-blue-600 text-base sm:text-lg md:text-xl font-semibold mb-3">
                   Vision
                 </div>
-                <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                   To be India&apos;s premier logistics partner, setting industry benchmarks 
                   in service quality, innovation, and trust.
                 </p>
