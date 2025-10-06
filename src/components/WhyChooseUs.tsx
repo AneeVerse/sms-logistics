@@ -46,8 +46,8 @@ export default function WhyChooseUs() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">15+</div>
-                  <div className="text-white/90 text-sm sm:text-base font-medium">Years</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">30+</div>
+                  <div className="text-white/90 text-sm sm:text-base font-medium">Years Combined</div>
                   <div className="text-white/70 text-xs leading-relaxed mt-1">Delivering excellence in logistics and transport services.</div>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
                   />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">50+</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">100+</div>
                   <div className="text-white/90 text-sm sm:text-base font-medium">Network Partners</div>
                   <div className="text-white/70 text-xs leading-relaxed mt-1">Extensive logistics network covering all major cities across India.</div>
                 </div>

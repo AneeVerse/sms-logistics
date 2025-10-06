@@ -91,8 +91,8 @@ export default function Navbar() {
             href="#contact"
             className="inline-flex items-center rounded-md bg-blue-600 hover:bg-blue-700 text-white px-4 xl:px-5 py-2.5 xl:py-3 text-sm font-medium shadow-md transition-colors"
           >
-            <span className="hidden sm:block">Contact Us Now</span>
-            <span className="sm:hidden">Contact Us Now</span>
+            <span className="hidden sm:block">Get a free quote</span>
+            <span className="sm:hidden">Get a free quote</span>
           </Link>
         </div>
 
@@ -125,12 +125,12 @@ export default function Navbar() {
       )}
 
       {/* Mobile Menu Panel */}
-      <div className={`lg:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-xl transform transition-transform duration-300 ease-in-out z-[11001] ${
-        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      <div className={`lg:hidden fixed inset-0 w-full h-full bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 shadow-xl transform transition-transform duration-500 ease-in-out z-[11001] ${
+        isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
       }`} style={{ backgroundColor: '#1e3a8a', backgroundImage: 'linear-gradient(to bottom right, #1e3a8a, #1e40af, #1e3a8a)' }}>
         <div className="flex flex-col h-full">
           {/* Mobile Menu Header */}
-          <div className="flex items-center justify-between p-6 border-b border-white/10">
+          <div className="flex items-center justify-between p-6 pt-8 border-b border-white/10">
             <Link href="/" onClick={closeMobileMenu} className="inline-flex items-center gap-2">
               <Image
                 src="/images/SMS LOGO.png"
@@ -155,47 +155,47 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Navigation */}
-          <div className="flex-1 px-6 py-8">
-            <nav className="space-y-6">
+          <div className="flex-1 px-6 py-12 flex flex-col justify-center">
+            <nav className="space-y-8 text-center">
               <Link 
                 href="/" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
+                className="block text-white text-2xl font-semibold uppercase hover:text-blue-300 transition-colors"
               >
                 Home
               </Link>
               <Link 
                 href="#why-choose-us" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
+                className="block text-white text-2xl font-semibold uppercase hover:text-blue-300 transition-colors"
               >
                 About
               </Link>
               <Link 
                 href="#our-solution" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
+                className="block text-white text-2xl font-semibold uppercase hover:text-blue-300 transition-colors"
               >
                 Services
               </Link>
               <Link 
                 href="#contact" 
                 onClick={closeMobileMenu}
-                className="block text-white text-lg font-semibold uppercase hover:text-blue-300 transition-colors"
+                className="block text-white text-2xl font-semibold uppercase hover:text-blue-300 transition-colors"
               >
                 Contact us
               </Link>
             </nav>
 
             {/* Mobile Contact Info */}
-            <div className="mt-12 pt-8 border-t border-white/10">
+            <div className="mt-16 pt-8 border-t border-white/10">
               <div className="space-y-4">
                 <Link
                   href="#contact"
                   onClick={closeMobileMenu}
-                  className="inline-flex items-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-sm font-medium shadow-md transition-colors w-full justify-center"
+                  className="inline-flex items-center rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-medium shadow-md transition-colors w-full justify-center"
                 >
-                  Contact Us Now
+                  Get a free quote
                 </Link>
               </div>
             </div>

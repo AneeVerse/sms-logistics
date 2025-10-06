@@ -42,7 +42,7 @@ const MARKERS: Marker[] = [
     id: "bangalore", 
     name: "Bangalore", 
     address: "Silicon Valley of India, Karnataka", 
-    left: 41, 
+    left: 45, 
     top: 50,
     mobileLeft: 42,
     mobileTop: 47
@@ -76,6 +76,33 @@ const MARKERS: Marker[] = [
     offsetY: -2,
     mobileLeft: 41,
     mobileTop: 38
+  },
+  { 
+    id: "punjab", 
+    name: "Punjab", 
+    address: "Agricultural Hub of Northern India", 
+    left: 45, 
+    top: 36,
+    mobileLeft: 42,
+    mobileTop: 28
+  },
+  { 
+    id: "haryana", 
+    name: "Haryana", 
+    address: "Industrial State of Northern India", 
+    left: 47, 
+    top: 38,
+    mobileLeft: 45,
+    mobileTop: 30
+  },
+  { 
+    id: "up", 
+    name: "Uttar Pradesh", 
+    address: "Most Populous State of India", 
+    left: 50, 
+    top: 37,
+    mobileLeft: 48,
+    mobileTop: 34
   },
 ];
 
@@ -143,6 +170,9 @@ function GlobalPresence() {
               { name: "Kolkata" },
               { name: "Chennai" },
               { name: "Gujarat" },
+              { name: "Punjab" },
+              { name: "Haryana" },
+              { name: "Uttar Pradesh" },
             ].map((city) => (
               <div key={city.name} className="inline-flex items-center gap-2 sm:gap-3">
                 <MdLocationOn className="text-xl sm:text-2xl md:text-3xl text-[#2563eb]" />

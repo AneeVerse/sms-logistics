@@ -59,7 +59,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "specialized",
     label: "Specialized Fleet Sourcing",
-    imageSrc: "/images/our-solution/services/Specialized Fleet Sourcing.png",
+    imageSrc: "/images/client resources/Specialized fleet Sourcing.jpg",
     imageAlt: "Specialized fleet vehicles",
     heading: "Specialized Fleet Sourcing",
     description: "Need something specific? We extend our services with access to rare and specialized vehicles—including 40ft trailers, pullers, multi-axle carriers, and more—via our vast network. No matter how unique or demanding your consignment, we find and deploy the right transport so you never have to compromise on logistics.",

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const slides = [
   {
     id: 1,
-    src: "/images/hero/hero-bg1.png",
+    src: "/images/client resources/hero.jpg",
     alt: "Highway truck 1",
     heading: "TRUST IN TRANSIT",
     paragraph: "Empowering your business with fast, secure, and flexible transport solutions across India."

@@ -18,16 +18,16 @@ const SERVICES: ServiceConfig[] = [
 
   {
     key: "lcv",
-    label: "Light Commercial Vehicles (LCV)",
-    imageSrc: "/images/our-solution/services/Light Commercial Vehicles (LCV).png",
-    imageAlt: "Light commercial vehicles",
-    heading: "Light Commercial Vehicles (LCV)",
-    description: "Perfect for fast-paced urban businesses, our LCVs are designed for quick, agile, and cost-effective delivery within cities and surrounding areas. From e-commerce parcels to time-sensitive documents and small retail consignments, we ensure flexible routing and prompt service for every short-haul load.",
+    label: "Containerized Vehicles",
+    imageSrc: "/images/client resources/Containerised Vehicle.jpg",
+    imageAlt: "Containerized vehicles",
+    heading: "Containerized Vehicles",
+    description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",
   },
   {
     key: "mcv",
     label: "Medium Commercial Vehicles (MCV)",
-    imageSrc: "/images/our-solution/services/Medium Commercial Vehicles (MCV).png",
+    imageSrc: "/images/client resources/mvc .jpg",
     imageAlt: "Medium commercial vehicles",
     heading: "Medium Commercial Vehicles (MCV)",
     description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",
@@ -35,7 +35,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "hcv",
     label: "Heavy Commercial Vehicles (HCV)",
-    imageSrc: "/images/our-solution/services/Heavy Commercial Vehicles (HCV).png",
+    imageSrc: "/images/our-solution/services/Containerized Vehicles.png",
     imageAlt: "Heavy commercial vehicles",
     heading: "Heavy Commercial Vehicles (HCV)",
     description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",

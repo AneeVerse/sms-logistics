@@ -79,7 +79,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">Phone</div>
-                    <div className="font-medium text-black text-sm sm:text-base">+91 98765 43210</div>
+                    <div className="font-medium text-black text-sm sm:text-base">+91 99205 40535 / +91 99200 13830</div>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">E-mail</div>
-                    <div className="font-medium text-black text-sm sm:text-base">info@smslogistics.in</div>
+                    <div className="font-medium text-black text-sm sm:text-base">smslogisticsoffcial@gmail.com</div>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,9 @@ export default function Contact() {
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">Address</div>
                     <div className="font-medium text-black text-sm sm:text-base">
-                      Navi Mumbai, Maharashtra 400614
+                      Sargam Apartment, C5/2 1:2,<br />
+                      Sector - 4, CBD Belapur,<br />
+                      Navi Mumbai - 400 614
                     </div>
                   </div>
                 </div>

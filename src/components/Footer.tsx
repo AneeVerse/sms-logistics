@@ -116,7 +116,7 @@ export default function Footer() {
 										<path d="M12 2C7.03 2 3 6.03 3 11c0 6 9 11 9 11s9-5 9-11c0-4.97-4.03-9-9-9zm0 12.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 7.5 12 7.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
 									</svg>
 								</span>
-								<div className="leading-relaxed text-sm sm:text-base">Navi Mumbai,<br/>Maharashtra 400614</div>
+								<div className="leading-relaxed text-sm sm:text-base">Sargam Apartment, C5/2 1:2,<br/>Sector - 4, CBD Belapur,<br/>Navi Mumbai - 400 614</div>
 							</li>
 							<li className="flex items-center gap-2 sm:gap-3 text-white/80">
 								<span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
@@ -124,7 +124,7 @@ export default function Footer() {
 										<path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/>
 									</svg>
 								</span>
-								<Link href="tel:+919876543210" className="hover:text-white transition-colors text-sm sm:text-base">+91 98765 43210</Link>
+								<Link href="tel:+919920540535" className="hover:text-white transition-colors text-sm sm:text-base">+91 99205 40535 / +91 99200 13830</Link>
 							</li>
 							<li className="flex items-center gap-2 sm:gap-3 text-white/80">
 								<span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
@@ -132,7 +132,7 @@ export default function Footer() {
 										<path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 									</svg>
 								</span>
-								<Link href="mailto:info@smslogistics.in" className="hover:text-white transition-colors text-sm sm:text-base">info@smslogistics.in</Link>
+								<Link href="mailto:smslogisticsoffcial@gmail.com" className="hover:text-white transition-colors text-sm sm:text-base">smslogisticsoffcial@gmail.com</Link>
 							</li>
 							<li className="flex items-start gap-2 sm:gap-3 text-white/80">
 								<span className="mt-0.5 inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
