@@ -74,7 +74,7 @@ export default function OurSolution() {
         const nextIndex = (currentIndex + 1) % SERVICES.length;
         return SERVICES[nextIndex].key;
       });
-    }, 3000); // Change tab every 2 seconds
+    }, 2000); // Change tab every 2 seconds
 
     return () => clearInterval(interval);
   }, []);

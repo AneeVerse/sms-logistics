@@ -30,9 +30,6 @@ const slides = [
 export default function Hero() {
   const [index, setIndex] = useState(0);
 
-  const next = () => setIndex((i) => (i + 1) % slides.length);
-  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
-
   // Auto-swipe functionality
   useEffect(() => {
     const interval = setInterval(() => {
