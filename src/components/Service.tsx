@@ -14,33 +14,61 @@ export default function Service() {
           </div>
 
           <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
-            <span className="text-gray-900">Moving India Forward,</span>{" "}
-            <span className="text-blue-600">One Delivery </span>
-          
-            <span className="text-blue-600">at a Time</span>
+            <span className="text-gray-900">About</span>{" "}
+            <span className="text-blue-600">Us</span>
           </h2>
 
-          <div className="mt-8 sm:mt-10 flex flex-col gap-4 sm:gap-6">
-            {/* Card 1 */}
-            <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
-              <div className="text-blue-600 text-base sm:text-lg font-semibold leading-tight">
-                01<br />Mission
+          <p className="mt-4 sm:mt-5 text-gray-700 leading-relaxed text-sm sm:text-base">
+            At SMS Logistics, we specialize in providing flexible and reliable transport solutions across India. 
+            We are fleet owners and transport contractors, supported by an extensive network of trusted vendors. 
+            Our commitment to excellence and reliability has made us a preferred partner for businesses of all sizes across the nation.
+          </p>
+
+          <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4">
+            {/* Mission & Vision Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5">
+                <div className="text-blue-600 text-sm sm:text-base font-semibold mb-2">
+                  Mission
+                </div>
+                <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
+                  To deliver reliable, efficient, and customized logistics solutions, 
+                  simplifying the way businesses move goods across India.
+                </p>
               </div>
-              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                To deliver reliable, efficient, and customized logistics solutions, 
-                simplifying the way businesses move goods across India.
-              </p>
+              
+              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5">
+                <div className="text-blue-600 text-sm sm:text-base font-semibold mb-2">
+                  Vision
+                </div>
+                <p className="text-gray-700 leading-relaxed text-xs sm:text-sm">
+                  To be India's premier logistics partner, setting industry benchmarks 
+                  in service quality, innovation, and trust.
+                </p>
+              </div>
             </div>
 
-            {/* Card 2 */}
-            <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7 grid grid-cols-[auto_1fr] gap-4 sm:gap-5 items-start">
-              <div className="text-blue-600 text-base sm:text-lg font-semibold leading-tight">
-                02<br />Vision
+            {/* Key Points */}
+            <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5">
+              <h3 className="text-blue-600 font-semibold text-sm sm:text-base mb-3">Why Choose SMS Logistics?</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-700">
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-600 font-medium">•</span>
+                  <span>Owned Fleet + Market Network</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-600 font-medium">•</span>
+                  <span>30+ Years Combined Experience</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-600 font-medium">•</span>
+                  <span>Pan-India Coverage with 100+ Partners</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-blue-600 font-medium">•</span>
+                  <span>Customer-Centric Solutions</span>
+                </div>
               </div>
-              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                To be India&apos;s premier logistics partner, setting industry benchmarks 
-                in service quality, innovation, and trust.
-              </p>
             </div>
           </div>
         </div>

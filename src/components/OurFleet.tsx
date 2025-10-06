@@ -19,7 +19,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "lcv",
     label: "Containerized Vehicles",
-    imageSrc: "/images/client resources/Containerised Vehicle.jpg",
+    imageSrc: "/images/client resources/Containerised Vehicle.png",
     imageAlt: "Containerized vehicles",
     heading: "Containerized Vehicles",
     description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",
@@ -27,7 +27,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "mcv",
     label: "Medium Commercial Vehicles (MCV)",
-    imageSrc: "/images/client resources/mvc .jpg",
+    imageSrc: "/images/client resources/mvc .png",
     imageAlt: "Medium commercial vehicles",
     heading: "Medium Commercial Vehicles (MCV)",
     description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",

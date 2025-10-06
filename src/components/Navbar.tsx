@@ -74,7 +74,7 @@ export default function Navbar() {
           <Link href="/" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>Home</Link>
-          <Link href="#why-choose-us" className={`font-semibold uppercase transition-colors ${
+          <Link href="#services" className={`font-semibold uppercase transition-colors ${
             isScrolled ? 'hover:text-gray-800' : 'hover:text-white'
           }`}>About</Link>
           <Link href="#our-solution" className={`font-semibold uppercase transition-colors ${
@@ -165,7 +165,7 @@ export default function Navbar() {
                 Home
               </Link>
               <Link 
-                href="#why-choose-us" 
+                href="#services" 
                 onClick={closeMobileMenu}
                 className="block text-white text-2xl font-semibold uppercase hover:text-blue-300 transition-colors"
               >
