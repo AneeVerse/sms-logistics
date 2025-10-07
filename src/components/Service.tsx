@@ -32,7 +32,7 @@ export default function Service() {
 
           <p className="mt-4 text-gray-700 leading-relaxed text-sm sm:text-base">
             We proudly own a modern fleet and also provide a wide range of vehicles sourced from our 
-            certified vendor network to meet diverse customer requirements. Whether it's a full truckload, part 
+            certified vendor network to meet diverse customer requirements. Whether it&apos;s a full truckload, part 
             load, or specialized cargo, SMS Logistics ensures the seamless movement of goods across India.
           </p>
 
@@ -42,8 +42,8 @@ export default function Service() {
           </p>
 
           <p className="mt-4 text-gray-700 leading-relaxed text-sm sm:text-base">
-            At SMS Logistics, we believe in more than just moving goods — we believe in "Connecting 
-            Direction." Our goal is to connect businesses, markets, and people by providing the right fleet at the 
+            At SMS Logistics, we believe in more than just moving goods — we believe in &quot;Connecting 
+            Direction.&quot; Our goal is to connect businesses, markets, and people by providing the right fleet at the 
             right time, every time.
           </p>
 
