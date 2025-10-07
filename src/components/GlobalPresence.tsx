@@ -23,10 +23,10 @@ const MARKERS: Marker[] = [
     id: "delhi", 
     name: "New Delhi", 
     address: "National Capital Territory, New Delhi", 
-    left: 47, 
-    top: 35,
-    mobileLeft: 44,
-    mobileTop: 32
+ left: 47, 
+    top: 38,
+    mobileLeft: 45,
+    mobileTop: 30
   },
   { 
     id: "mumbai", 
@@ -90,10 +90,10 @@ const MARKERS: Marker[] = [
     id: "haryana", 
     name: "Haryana", 
     address: "Industrial State of Northern India", 
-    left: 47, 
-    top: 38,
-    mobileLeft: 45,
-    mobileTop: 30
+left: 47, 
+    top: 35,
+    mobileLeft: 44,
+    mobileTop: 32
   },
   { 
     id: "up", 

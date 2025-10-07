@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
               alt="Cargo port overview"
               width={900}
               height={650}
-              className="w-full h-auto object-cover"
+              className="w-full h-156 object-cover"
               priority
             />
           </div>
@@ -25,9 +25,9 @@ export default function WhyChooseUs() {
           {/* Right: Content block */}
           <div className="text-white flex flex-col justify-center">
             <div className="text-white/80 text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase">Why Choose Us</div>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-semibold leading-tight">
+            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[40px] font-semibold leading-tight">
               Experience, Reliability, and 
-              <br className="hidden sm:block" />
+              
               Nationwide Reach That&apos;s Our 
              
               Promise
@@ -66,6 +66,48 @@ export default function WhyChooseUs() {
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold">100+</div>
                   <div className="text-white/90 text-sm sm:text-base font-medium">Network Partners</div>
                   <div className="text-white/70 text-xs leading-relaxed mt-1">Extensive logistics network covering all major cities across India.</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Why Choose SMS Logistics */}
+            <div className="mt-6 sm:mt-8">
+              <h3 className="text-white text-lg sm:text-xl font-semibold mb-4">Why Choose SMS Logistics?</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <div className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div className="text-white font-medium text-sm sm:text-base">Owned Fleet + Market Network</div>
+                    <div className="text-white/80 text-xs sm:text-sm">Flexibility to provide the right vehicle for every need.</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div className="text-white font-medium text-sm sm:text-base">Certified Vendor Network</div>
+                    <div className="text-white/80 text-xs sm:text-sm">Reliable and compliant partners across the country.</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div className="text-white font-medium text-sm sm:text-base">Experienced Team</div>
+                    <div className="text-white/80 text-xs sm:text-sm">Over 15 years of industry expertise.</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="h-2 w-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div className="text-white font-medium text-sm sm:text-base">Pan-India Coverage</div>
+                    <div className="text-white/80 text-xs sm:text-sm">Strong network ensuring timely deliveries.</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 sm:col-span-2">
+                  <div className="h-2 w-2 rounded-full bg-white mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div className="text-white font-medium text-sm sm:text-base">Customer-Centric Approach</div>
+                    <div className="text-white/80 text-xs sm:text-sm">Solutions designed around your business requirements.</div>
+                  </div>
                 </div>
               </div>
             </div>
