@@ -15,53 +15,54 @@ type ServiceConfig = {
 };
 
 const SERVICES: ServiceConfig[] = [
-
   {
-    key: "lcv",
-    label: "Containerized Vehicles",
-    imageSrc: "/images/client resources/Containerised1.jpg",
-    imageAlt: "Containerized vehicles",
-    heading: "Containerized Vehicles",
-    description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",
+    key: "hcv",
+    label: "Heavy Commercial Vehicles (HCV)",
+    imageSrc: "/images/our-fleet/Heavy Commercial Vehicles (HCV).png",
+    imageAlt: "Heavy commercial vehicles",
+    heading: "Heavy Commercial Vehicles (HCV)",
+    description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",
   },
   {
     key: "mcv",
     label: "Medium Commercial Vehicles (MCV)",
-    imageSrc: "/images/client resources/mvc .png",
+    imageSrc: "/images/our-fleet/Medium Commercial Vehicles (MCV).png",
     imageAlt: "Medium commercial vehicles",
     heading: "Medium Commercial Vehicles (MCV)",
     description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",
   },
   {
-    key: "hcv",
-    label: "Heavy Commercial Vehicles (HCV)",
-    imageSrc: "/images/our-solution/services/Containerized Vehicles.png",
-    imageAlt: "Heavy commercial vehicles",
-    heading: "Heavy Commercial Vehicles (HCV)",
-    description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",
+    key: "lcv",
+    label: "Containerized Vehicles",
+    imageSrc: "/images/our-fleet/Containerized Vehicles.png",
+    imageAlt: "Containerized vehicles",
+    heading: "Containerized Vehicles",
+    description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",
   },
-  
 ];
 
 export default function OurFleet() {
-  const [active, setActive] = useState<ServiceKey>("lcv");
+  const [active, setActive] = useState<ServiceKey>("hcv");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const activeConfig = SERVICES.find((s) => s.key === active)!;
 
-  // Auto tab change functionality
+  // Auto tab change functionality - pause when hovered
   useEffect(() => {
+    if (isHovered) return; // Don't auto-scroll when hovered
+    
     const interval = setInterval(() => {
       setActive(prevActive => {
         const currentIndex = SERVICES.findIndex(s => s.key === prevActive);
         const nextIndex = (currentIndex + 1) % SERVICES.length;
         return SERVICES[nextIndex].key;
       });
-    }, 5000); // Change tab every 2 seconds
+    }, 5000); // Change tab every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -83,7 +84,10 @@ export default function OurFleet() {
   };
 
   return (
-    <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
+    <section 
+      id="our-solution" 
+      className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20"
+    >
       {/* Eyebrow */}
       <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
         <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
@@ -180,7 +184,11 @@ export default function OurFleet() {
       </div>
 
       {/* Content card (framed, compact) */}
-      <div className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden">
+      <div 
+        className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="rounded-[12px] sm:rounded-[14px] md:rounded-[18px] bg-[#0A3AB6] p-3 sm:p-4 md:p-6 lg:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             {/* Image */}
@@ -220,7 +228,7 @@ export default function OurFleet() {
                       element.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="group inline-flex items-center rounded-full bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
+                  className="group inline-flex items-center rounded-lg bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
                 >
                   <span>Contact Us Now</span>
                   <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-600 group-hover:text-white">

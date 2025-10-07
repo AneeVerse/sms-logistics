@@ -71,20 +71,31 @@ export default function WhyChooseUs() {
             </div>
 
             <div className="mt-8 sm:mt-10 inline-flex">
-              <button 
+              <button
+                type="button"
                 onClick={() => {
                   const element = document.getElementById("contact");
                   if (element) {
                     element.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="inline-flex items-center gap-2 rounded-xl bg-white text-gray-900 px-4 sm:px-6 py-2.5 sm:py-3 text-sm md:text-base font-medium hover:bg-gray-100 transition-colors"
+                className="group inline-flex items-center rounded-lg bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
               >
                 <span>Contact Us Now</span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 w-4 sm:h-5 sm:w-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
-                  <path d="M7 17L17 7" strokeLinecap="round" />
-                  <path d="M7 7h10v10" strokeLinecap="round" />
-                </svg>
+                <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17L17 7" strokeLinecap="round" />
+                    <path d="M7 7h10v10" strokeLinecap="round" />
+                  </svg>
+                </span>
               </button>
             </div>
           </div>

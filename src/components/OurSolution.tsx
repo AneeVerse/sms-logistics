@@ -62,22 +62,25 @@ const SERVICES: ServiceConfig[] = [
 export default function OurSolution() {
   const [active, setActive] = useState<ServiceKey>("fleet");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const activeConfig = SERVICES.find((s) => s.key === active)!;
 
-  // Auto tab change functionality
+  // Auto tab change functionality - pause when hovered
   useEffect(() => {
+    if (isHovered) return; // Don't auto-scroll when hovered
+    
     const interval = setInterval(() => {
       setActive(prevActive => {
         const currentIndex = SERVICES.findIndex(s => s.key === prevActive);
         const nextIndex = (currentIndex + 1) % SERVICES.length;
         return SERVICES[nextIndex].key;
       });
-    }, 5000); // Change tab every 2 seconds
+    }, 5000); // Change tab every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -99,7 +102,10 @@ export default function OurSolution() {
   };
 
   return (
-    <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
+    <section 
+      id="our-solution" 
+      className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20"
+    >
       {/* Eyebrow */}
       <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
         <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
@@ -196,7 +202,11 @@ export default function OurSolution() {
       </div>
 
       {/* Content card (framed, compact) */}
-      <div className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden">
+      <div 
+        className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="rounded-[12px] sm:rounded-[14px] md:rounded-[18px] bg-[#0A3AB6] p-3 sm:p-4 md:p-6 lg:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             {/* Image */}
@@ -232,7 +242,7 @@ export default function OurSolution() {
                       element.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="group inline-flex items-center rounded-full bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
+                  className="group inline-flex items-center rounded-lg bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
                 >
                   <span>Contact Us Now</span>
                   <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-600 group-hover:text-white">
