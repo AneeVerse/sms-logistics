@@ -18,7 +18,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "hcv",
     label: "Heavy Commercial Vehicles (HCV)",
-    imageSrc: "/images/our-fleet/Heavy Commercial Vehicles (HCV).png",
+    imageSrc: "/images/our-fleet/A/Heavy Commercial Vehicles (HCV).png",
     imageAlt: "Heavy commercial vehicles",
     heading: "Heavy Commercial Vehicles (HCV)",
     description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",
@@ -26,7 +26,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "mcv",
     label: "Medium Commercial Vehicles (MCV)",
-    imageSrc: "/images/our-fleet/Medium Commercial Vehicles (MCV).png",
+    imageSrc: "/images/our-fleet/A/Medium Commercial Vehicles (MCV).png",
     imageAlt: "Medium commercial vehicles",
     heading: "Medium Commercial Vehicles (MCV)",
     description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",
@@ -34,7 +34,7 @@ const SERVICES: ServiceConfig[] = [
   {
     key: "lcv",
     label: "Containerized Vehicles",
-    imageSrc: "/images/our-fleet/Containerized Vehicles.png",
+    imageSrc: "/images/our-fleet/A/Containerized Vehicles.png",
     imageAlt: "Containerized vehicles",
     heading: "Containerized Vehicles",
     description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",

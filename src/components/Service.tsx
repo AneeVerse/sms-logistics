@@ -49,22 +49,22 @@ export default function Service() {
 
           <div className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4">
             {/* Mission & Vision Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7">
-                <div className="text-blue-600 text-base sm:text-lg md:text-xl font-semibold mb-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+              <div className="rounded-xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5 hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 group">
+                <div className="text-blue-600 group-hover:text-white text-sm sm:text-base md:text-lg font-semibold mb-2">
                   Mission
                 </div>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-700 group-hover:text-white leading-relaxed text-xs sm:text-sm">
                   To deliver reliable, efficient, and customized logistics solutions, 
                   simplifying the way businesses move goods across India.
                 </p>
               </div>
               
-              <div className="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6 md:p-7">
-                <div className="text-blue-600 text-base sm:text-lg md:text-xl font-semibold mb-3">
+              <div className="rounded-xl bg-white border border-gray-100 shadow-sm p-4 sm:p-5 hover:bg-blue-600 hover:border-blue-600 transition-all duration-300 group">
+                <div className="text-blue-600 group-hover:text-white text-sm sm:text-base md:text-lg font-semibold mb-2">
                   Vision
                 </div>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                <p className="text-gray-700 group-hover:text-white leading-relaxed text-xs sm:text-sm">
                   To be India&apos;s premier logistics partner, setting industry benchmarks 
                   in service quality, innovation, and trust.
                 </p>
@@ -72,34 +72,7 @@ export default function Service() {
             </div>
           </div>
 
-          <div className="mt-5 sm:mt-6">
-            <button
-              type="button"
-              onClick={() => {
-                const element = document.getElementById("why-choose-us");
-                if (element) {
-                  element.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className="group inline-flex items-center rounded-lg bg-blue-600 text-white pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-blue-700"
-            >
-              <span>Know More</span>
-              <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-blue-600 ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-50 group-hover:text-blue-700">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="h-4 w-4 sm:h-5 sm:w-5"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 17L17 7" strokeLinecap="round" />
-                  <path d="M7 7h10v10" strokeLinecap="round" />
-                </svg>
-              </span>
-            </button>
-          </div>
+        
         </div>
 
         {/* Right: Truck with blue blocks background */}

@@ -94,7 +94,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">E-mail</div>
-                    <div className="font-medium text-black text-sm sm:text-base">smslogisticsoffcial@gmail.com</div>
+                    <div className="font-medium text-black text-sm sm:text-base">info@smslogistics.co.in </div>
                   </div>
                 </div>
               </div>

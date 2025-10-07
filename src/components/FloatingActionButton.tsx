@@ -50,7 +50,7 @@ const FloatingActionButton = () => {
           </motion.a>
 
           <motion.a
-            href="mailto:smslogisticsoffcial@gmail.com"
+            href="mailto:info@smslogistics.co.in "
             className="w-14 h-14 bg-white text-blue-600 rounded-full flex items-center justify-center shadow-lg border border-blue-600"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -116,14 +116,14 @@ const FloatingActionButton = () => {
                 whileHover={{ scale: 1.05 }}
               >
                 <a
-                  href="mailto:smslogisticsoffcial@gmail.com"
+                  href="mailto:info@smslogistics.co.in "
                   className="flex items-center text-blue-600 cursor-pointer"
                 >
                   <FaEnvelope size={24} />
-                  <span className="ml-3 text-lg font-medium text-gray-700">Email: smslogisticsoffcial@gmail.com</span>
+                  <span className="ml-3 text-lg font-medium text-gray-700">Email: info@smslogistics.co.in </span>
                 </a>
                 <motion.button
-                  onClick={() => handleCopy('smslogisticsoffcial@gmail.com')}
+                  onClick={() => handleCopy('info@smslogistics.co.in ')}
                   className="text-gray-500 hover:text-blue-600 focus:outline-none"
                   whileTap={{ scale: 0.9 }}
                 >
