@@ -79,8 +79,8 @@ export default function ThankYou() {
               </p>
               <p>
                 <strong>Email:</strong> 
-                <a href="mailto:info@smslogistics.in" className="text-blue-600 hover:text-blue-700 ml-2">
-                  info@smslogistics.in
+                <a href="mailto:info@smslogistics.co.in" className="text-blue-600 hover:text-blue-700 ml-2">
+                  info@smslogistics.co.in
                 </a>
               </p>
             </div>
