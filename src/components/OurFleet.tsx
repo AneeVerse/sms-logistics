@@ -1,0 +1,258 @@
+"use client";
+
+import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
+
+type ServiceKey = "fleet" | "vendor" | "customized" | "pan-india" | "lcv" | "mcv" | "hcv" | "container" | "specialized";
+
+type ServiceConfig = {
+  key: ServiceKey;
+  label: string;
+  imageSrc: string;
+  imageAlt: string;
+  heading: string;
+  description: string;
+};
+
+const SERVICES: ServiceConfig[] = [
+  {
+    key: "hcv",
+    label: "Heavy Commercial Vehicles (HCV)",
+    imageSrc: "/images/our-fleet/A/Heavy Commercial Vehicles (HCV).png",
+    imageAlt: "Heavy commercial vehicles",
+    heading: "Heavy Commercial Vehicles (HCV)",
+    description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",
+  },
+  {
+    key: "mcv",
+    label: "Medium Commercial Vehicles (MCV)",
+    imageSrc: "/images/our-fleet/A/Medium Commercial Vehicles (MCV).png",
+    imageAlt: "Medium commercial vehicles",
+    heading: "Medium Commercial Vehicles (MCV)",
+    description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",
+  },
+  {
+    key: "lcv",
+    label: "Containerized Vehicles",
+    imageSrc: "/images/our-fleet/A/Containerized Vehicles.png",
+    imageAlt: "Containerized vehicles",
+    heading: "Containerized Vehicles",
+    description: "Secure and efficient transportation solutions for your valuable cargo. Our containerized vehicles provide enhanced protection, weather resistance, and tamper-proof delivery for goods requiring extra security. Ideal for electronics, pharmaceuticals, high-value merchandise, and temperature-sensitive items across all distances.",
+  },
+];
+
+export default function OurFleet() {
+  const [active, setActive] = useState<ServiceKey>("hcv");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const activeConfig = SERVICES.find((s) => s.key === active)!;
+
+  // Auto tab change functionality - pause when hovered
+  useEffect(() => {
+    if (isHovered) return; // Don't auto-scroll when hovered
+    
+    const interval = setInterval(() => {
+      setActive(prevActive => {
+        const currentIndex = SERVICES.findIndex(s => s.key === prevActive);
+        const nextIndex = (currentIndex + 1) % SERVICES.length;
+        return SERVICES[nextIndex].key;
+      });
+    }, 5000); // Change tab every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleServiceSelect = (serviceKey: ServiceKey) => {
+    setActive(serviceKey);
+    setIsDropdownOpen(false);
+  };
+
+  return (
+    <section 
+      id="our-solution" 
+      className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20"
+    >
+      {/* Eyebrow */}
+      <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
+        <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
+        <span className="text-gray-600 font-normal text-sm sm:text-base">OUR FLEET SECTION</span>
+      </div>
+
+      {/* Title */}
+      <h2 className="mt-4 sm:mt-5 text-center text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[48px] font-medium leading-tight">
+        <span className="text-gray-900">Our</span>{" "}
+        <span className="text-blue-600">Fleet</span>
+      </h2>
+
+      {/* Tabs */}
+      <div className="mt-8 sm:mt-10 px-4">
+        {/* Mobile: Beautiful Custom Dropdown */}
+        <div className="block sm:hidden" ref={dropdownRef}>
+          <div className="relative">
+            {/* Dropdown Trigger */}
+            <button
+              type="button"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="w-full flex items-center justify-between bg-white border-2 border-gray-100 rounded-2xl px-5 py-4 shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <div className="flex items-center gap-3">
+                <div className="h-3 w-3 rounded-full bg-blue-600"></div>
+                <span className="text-gray-800 font-medium text-sm">{activeConfig.label}</span>
+              </div>
+              <svg
+                className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${
+                  isDropdownOpen ? 'rotate-180' : 'rotate-0'
+                }`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 overflow-hidden animate-in slide-in-from-top-2 duration-200">
+                <div className="py-2">
+                  {SERVICES.map((service) => (
+                    <button
+                      key={service.key}
+                      type="button"
+                      onClick={() => handleServiceSelect(service.key)}
+                      className={`w-full text-left px-5 py-3 hover:bg-blue-50 transition-colors duration-150 ${
+                        active === service.key ? 'bg-blue-50 border-r-4 border-blue-600' : ''
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={`h-2.5 w-2.5 rounded-full ${
+                          active === service.key ? 'bg-blue-600' : 'bg-gray-300'
+                        }`}></div>
+                        <span className={`text-sm font-medium ${
+                          active === service.key ? 'text-blue-600' : 'text-gray-700'
+                        }`}>
+                          {service.label}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Tablet & Desktop: Grid Layout */}
+        <div className="hidden sm:block">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-6xl mx-auto">
+            {SERVICES.map((s) => {
+              const isActive = active === s.key;
+              return (
+                <button
+                  key={s.key}
+                  type="button"
+                  onClick={() => setActive(s.key)}
+                  className={`relative px-3 md:px-4 py-2.5 md:py-3 text-xs md:text-sm font-medium rounded-xl transition-all duration-300 text-center ${
+                    isActive 
+                      ? "bg-blue-600 text-white shadow-md shadow-blue-600/25" 
+                      : "bg-gray-100 text-gray-600 hover:text-gray-900 hover:bg-gray-200"
+                  }`}
+                >
+                  <span className="block">{s.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Content card (framed, compact) */}
+      <div 
+        className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="rounded-[12px] sm:rounded-[14px] md:rounded-[18px] bg-[#0A3AB6] p-3 sm:p-4 md:p-6 lg:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+            {/* Image */}
+            <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-white/5">
+              <div className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px] xl:h-[360px]">
+                <Image
+                  key={activeConfig.imageSrc}
+                  src={activeConfig.imageSrc}
+                  alt={activeConfig.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 48vw"
+                  className="object-cover"
+                  priority
+                />
+                {/* Blue color overlay instead of background image */}
+                <div 
+                  className="absolute inset-0 bg-blue-600/20"
+                />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="flex flex-col justify-center text-white px-1 md:px-2 lg:px-1">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold leading-snug">
+                {activeConfig.heading}
+              </h3>
+              <p className="mt-3 text-white/90 leading-relaxed text-sm md:text-[15px]">
+                {activeConfig.description}
+              </p>
+
+              <div className="mt-5 sm:mt-6">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const element = document.getElementById("contact");
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="group inline-flex items-center rounded-lg bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
+                >
+                  <span>Contact Us Now</span>
+                  <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="h-4 w-4 sm:h-5 sm:w-5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M7 17L17 7" strokeLinecap="round" />
+                      <path d="M7 7h10v10" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+

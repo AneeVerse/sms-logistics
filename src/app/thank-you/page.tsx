@@ -73,14 +73,14 @@ export default function ThankYou() {
             <div className="space-y-2 text-gray-700">
               <p>
                 <strong>Phone:</strong> 
-                <a href="tel:+919876543210" className="text-blue-600 hover:text-blue-700 ml-2">
-                  +91 98765 43210
+                <a href="tel:+919920540535" className="text-blue-600 hover:text-blue-700 ml-2">
+                  +91 99205 40535 / +91 99200 13830
                 </a>
               </p>
               <p>
                 <strong>Email:</strong> 
-                <a href="mailto:info@smslogistics.in" className="text-blue-600 hover:text-blue-700 ml-2">
-                  info@smslogistics.in
+                <a href="mailto:info@smslogistics.co.in" className="text-blue-600 hover:text-blue-700 ml-2">
+                  info@smslogistics.co.in
                 </a>
               </p>
             </div>

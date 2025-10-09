@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { MdLocationOn } from "react-icons/md";
 // Flag emojis for countries
 
 type Marker = {
@@ -12,21 +13,133 @@ type Marker = {
   left: number; // 0-100
   top: number; // 0-100
   offsetY?: number; // fine-tune connector alignment (px)
+  // Mobile-specific positioning for zoomed map
+  mobileLeft?: number; // 0-100
+  mobileTop?: number; // 0-100
 };
 
 const MARKERS: Marker[] = [
-  { id: "russia", name: "Russia", address: "Moscow, Russia", left: 66, top: 20 },
-  { id: "china", name: "China", address: "89 Innovation Avenue Suite 5A, Shanghai", left: 80, top: 40, offsetY: -3 },
-  { id: "germany", name: "Germany", address: "Berlin, Germany", left: 58, top: 34 },
-  { id: "america", name: "America", address: "New York, USA", left: 21, top: 38, offsetY: -3 },
-  { id: "canada", name: "Canada", address: "Toronto, Canada", left: 18, top: 28, offsetY: -3 },
-  { id: "australia", name: "Australia", address: "Sydney, Australia", left: 88, top: 78, offsetY: 2 },
-  { id: "france", name: "France", address: "12 Rue de la Lumière Bâtiment C, Bureau 45, Paris 75012 France", left: 52, top: 34 },
-  { id: "south-africa", name: "South Africa", address: "Cape Town, South Africa", left: 55, top: 73, offsetY: 2 },
+  { 
+    id: "delhi", 
+    name: "New Delhi", 
+    address: "National Capital Territory, New Delhi", 
+ left: 47, 
+    top: 38,
+    mobileLeft: 45,
+    mobileTop: 30
+  },
+  { 
+    id: "mumbai", 
+    name: "Mumbai", 
+    address: "Financial Capital, Maharashtra", 
+    left: 45, 
+    top: 45, 
+    offsetY: -3,
+    mobileLeft: 40,
+    mobileTop: 42
+  },
+  { 
+    id: "bangalore", 
+    name: "Bangalore", 
+    address: "Silicon Valley of India, Karnataka", 
+    left: 45, 
+    top: 50,
+    mobileLeft: 42,
+    mobileTop: 47
+  },
+  { 
+    id: "kolkata", 
+    name: "Kolkata", 
+    address: "Cultural Capital, West Bengal", 
+    left: 55, 
+    top: 40, 
+    offsetY: -3,
+    mobileLeft: 56,
+    mobileTop: 35
+  },
+  { 
+    id: "chennai", 
+    name: "Chennai", 
+    address: "Detroit of India, Tamil Nadu", 
+    left: 49, 
+    top: 55, 
+    offsetY: 2,
+    mobileLeft: 48,
+    mobileTop: 50
+  },
+  { 
+    id: "gujrat", 
+    name: "Gujrat", 
+    address: "Industrial Hub of Western India", 
+    left: 43, 
+    top: 41, 
+    offsetY: -2,
+    mobileLeft: 41,
+    mobileTop: 38
+  },
+  { 
+    id: "punjab", 
+    name: "Punjab", 
+    address: "Agricultural Hub of Northern India", 
+    left: 45, 
+    top: 36,
+    mobileLeft: 42,
+    mobileTop: 28
+  },
+  { 
+    id: "haryana", 
+    name: "Haryana", 
+    address: "Industrial State of Northern India", 
+left: 47, 
+    top: 35,
+    mobileLeft: 44,
+    mobileTop: 32
+  },
+  { 
+    id: "up", 
+    name: "Uttar Pradesh", 
+    address: "Most Populous State of India", 
+    left: 50, 
+    top: 37,
+    mobileLeft: 48,
+    mobileTop: 34
+  },
 ];
 
-export default function GlobalPresence() {
+function GlobalPresence() {
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handle click outside to close active marker
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      // If we have an active marker and the click is outside any marker button
+      if (activeId && mapRef.current && event.target && !(event.target as Element).closest('button')) {
+        setActiveId(null);
+      }
+    }
+
+    // Add event listener to the document
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    // Clean up the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeId]);
 
   const active = MARKERS.find((m) => m.id === activeId) ?? null;
 
@@ -35,109 +148,161 @@ export default function GlobalPresence() {
       id="global-presence"
       className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#F7F9FC] overflow-x-hidden"
     >
-      <div className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12">
+      <div className="w-full px-0">
         {/* Header */}
+        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 mb-8 sm:mb-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] items-start gap-6 sm:gap-8">
           <div>
-            <div className="text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase text-gray-500">Global Presence</div>
+            <div className="text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] uppercase text-gray-500">India Presence</div>
             <h2 className="mt-3 text-2xl sm:text-3xl md:text-4xl lg:text-[40px] xl:text-[44px] font-semibold text-[#0A3AB6] leading-tight">
-              List Of Nations We
+              Major Cities We
               <br className="hidden sm:block" />
-              Work With Worldwide
+              Serve Across India
             </h2>
           </div>
 
           {/* Legend */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-2 sm:gap-y-3 text-xs sm:text-sm text-gray-700">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4 text-sm sm:text-base md:text-lg text-gray-700">
             {[
-              { name: "Russia", code: "ru" },
-              { name: "America", code: "us" },
-              { name: "Canada", code: "ca" },
-              { name: "China", code: "cn" },
-              { name: "Germany", code: "de" },
-              { name: "Australia", code: "au" },
-              { name: "France", code: "fr" },
-              { name: "South Africa", code: "za" },
-            ].map((country) => (
-              <div key={country.name} className="inline-flex items-center gap-1.5 sm:gap-2">
-                <span className={`fi fi-${country.code} w-4 h-3 sm:w-5 sm:h-3 rounded-sm`} />
-                <span>{country.name}</span>
+              { name: "New Delhi" },
+              { name: "Mumbai" },
+              { name: "Bangalore" },
+              { name: "Kolkata" },
+              { name: "Chennai" },
+              { name: "Gujarat" },
+              { name: "Punjab" },
+              { name: "Haryana" },
+              { name: "Uttar Pradesh" },
+            ].map((city) => (
+              <div key={city.name} className="inline-flex items-center gap-2 sm:gap-3">
+                <MdLocationOn className="text-xl sm:text-2xl md:text-3xl text-[#2563eb]" />
+                <span className="font-medium">{city.name}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Map with markers */}
-        <div className="relative mt-8 sm:mt-10 rounded-2xl sm:rounded-3xl overflow-hidden">
+        </div>
+        </div>
+        
+        {/* Map with markers - Full Width */}
+        <div className="relative w-full overflow-hidden">
           {/* Background map image */}
-          <div className="relative w-full aspect-video sm:aspect-[16/8] md:aspect-[16/7]">
+          <div ref={mapRef} className="relative w-full aspect-[3/4] sm:aspect-video md:aspect-[16/14] lg:aspect-[16/14] -mt-20 sm:-mt-40 md:-mt-50 lg:-mt-80">
             <Image
-              src="/images/global/global.png"
-              alt="World map"
+              src="/images/global/india.jpg"
+              alt="India map"
               fill
               priority
-              className="object-cover"
+              className="object-cover object-center"
+              style={{ 
+                transform: 'scale(1.4) translateY(-8%)', 
+                transformOrigin: 'center',
+              }}
             />
+            
+            {/* Desktop/Tablet overlay with original zoom */}
+            <div className="hidden sm:block absolute inset-0">
+              <Image
+                src="/images/global/india.jpg"
+                alt="India map desktop"
+                fill
+                priority
+                className="object-cover object-center"
+                style={{ 
+                  transform: 'scale(1.1) translateY(-5%)', 
+                  transformOrigin: 'center',
+                }}
+              />
+            </div>
+            
+            {/* Tablet-specific overlay for perfect positioning */}
+            <div className="hidden md:block lg:hidden absolute inset-0" 
+                 style={{ 
+                   transform: 'scale(1.05) translateY(-3%)', 
+                   transformOrigin: 'center',
+                   zIndex: 1
+                 }}>
+              <Image
+                src="/images/global/india.jpg"
+                alt="India map tablet"
+                fill
+                priority
+                className="object-cover object-center"
+              />
+            </div>
 
             {/* Markers */}
-            {MARKERS.map((m) => (
-              <button
-                key={m.id}
-                type="button"
-                onClick={() => setActiveId(activeId === m.id ? null : m.id)}
-                className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer`}
-                style={{ left: `${m.left}%`, top: `${m.top}%` }}
-                aria-label={m.name}
-              >
+            {MARKERS.map((m) => {
+              const leftPos = isMobile ? (m.mobileLeft || m.left) : m.left;
+              const topPos = isMobile ? (m.mobileTop || m.top) : m.top;
+              
+              return (
+                <button
+                  key={m.id}
+                  type="button"
+                  onClick={() => setActiveId(activeId === m.id ? null : m.id)}
+                  className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10`}
+                  style={{ left: `${leftPos}%`, top: `${topPos}%` }}
+                  aria-label={m.name}
+                >
                 <span className="relative inline-flex items-center justify-center">
-                  {/* Animated pulse ring */}
-                  <span className="absolute h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-full bg-[#2563eb]/20 animate-ping" />
-                  <span className="absolute h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full bg-[#2563eb]/30 animate-pulse" />
+                  {/* Animated pulse ring - Perfect circles - Mobile optimized */}
+                  <span className="absolute aspect-square h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 rounded-full bg-[#2563eb]/50 animate-ping" style={{ borderRadius: '50%' }} />
+                  <span className="absolute aspect-square h-5 w-5 sm:h-7 sm:w-7 md:h-8 md:w-8 lg:h-10 lg:w-10 rounded-full bg-[#2563eb]/60 animate-pulse" style={{ borderRadius: '50%' }} />
+                  <span className="absolute aspect-square h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-9 lg:w-9 rounded-full bg-[#2563eb]/40 animate-ping" style={{ borderRadius: '50%', animationDelay: '0.5s' }} />
                   
-                  {/* Main marker */}
-                  <span className="relative h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 rounded-full border-2 border-white bg-[#2563eb] grid place-items-center shadow-lg">
+                  {/* Main marker - Mobile optimized */}
+                  <span className="relative aspect-square h-4 w-4 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 rounded-full border-2 border-white bg-[#2563eb] grid place-items-center shadow-lg" style={{ borderRadius: '50%' }}>
                     {/* Simple dot */}
-                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-white" />
+                    <span className="aspect-square h-1 w-1 sm:h-1.5 sm:w-1.5 md:h-2 md:w-2 lg:h-2.5 lg:w-2.5 rounded-full bg-white" style={{ borderRadius: '50%' }} />
                   </span>
                 </span>
               </button>
-            ))}
+              );
+            })}
 
             {/* Tooltip card for active marker */}
             {active && (
               <div
                 className="absolute z-10"
-                style={{ left: `${active.left}%`, top: `${active.top + (active.offsetY ?? 0) / 1}%` }}
+                style={{ 
+                  left: `${isMobile ? (active.mobileLeft || active.left) : active.left}%`, 
+                  top: `${isMobile ? (active.mobileTop || active.top) : active.top}%` 
+                }}
               >
-                {/* Tooltip group keeps consistent 18px gap */}
-                {active.top < 35 ? (
+                {/* Tooltip group - line connects to center of marker */}
+                {(isMobile ? (active.mobileTop || active.top) : active.top) < 40 ? (
                   // card below marker
                   <div className="flex flex-col items-center -translate-x-1/2 animate-in fade-in zoom-in duration-200">
-                    <div className="h-[8px] sm:h-[12px] w-0.5 bg-[#2563eb]" />
-                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#2563eb]" />
-                    <div className="mt-2 sm:mt-4 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
+                    {/* Line starts from marker center - Mobile optimized */}
+                    <div className="h-[12px] sm:h-[16px] md:h-[20px] w-0.5 bg-[#2563eb]" />
+                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-[#2563eb]" />
+                    <div className="mt-1.5 sm:mt-2 md:mt-3 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[140px] sm:min-w-[180px] md:min-w-[220px] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 text-center">
                       <div className="font-semibold text-sm sm:text-base">{active.name}</div>
                       <div className="mt-1 text-xs sm:text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
                   </div>
                 ) : (
                   // card above marker
-                  <div className="flex flex-col items-center -translate-x-1/2 -translate-y-[12px] sm:-translate-y-[18px] animate-in fade-in zoom-in duration-200">
-                    <div className="mb-2 sm:mb-4 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[180px] sm:min-w-[220px] max-w-[240px] sm:max-w-[280px] px-3 sm:px-4 py-2 sm:py-3 text-center">
-                      <div className="font-semibold text-sm sm:text-base">{active.name}</div>
-                      <div className="mt-1 text-xs sm:text-sm text-white/95 whitespace-normal">{active.address}</div>
+                  <div className="flex flex-col items-center -translate-x-1/2 -translate-y-full animate-in fade-in zoom-in duration-200">
+                    <div className="mb-1.5 sm:mb-2 md:mb-3 rounded-lg bg-[#2563eb] text-white shadow-xl min-w-[140px] sm:min-w-[180px] md:min-w-[220px] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 md:py-3 text-center">
+                      <div className="font-semibold text-xs sm:text-sm md:text-base">{active.name}</div>
+                      <div className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs md:text-sm text-white/95 whitespace-normal">{active.address}</div>
                     </div>
-                    <div className="h-[8px] sm:h-[12px] w-0.5 bg-[#2563eb]" />
-                    <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-[#2563eb]" />
+                    <div className="h-1.5 w-1.5 sm:h-2 sm:w-2 md:h-2.5 md:w-2.5 rounded-full bg-[#2563eb]" />
+                    {/* Line ends at marker center - Mobile optimized */}
+                    <div className="h-[12px] sm:h-[16px] md:h-[20px] w-0.5 bg-[#2563eb]" />
                   </div>
                 )}
               </div>
             )}
           </div>
         </div>
-      </div>
     </section>
   );
 }
+
+export default GlobalPresence;
 
 

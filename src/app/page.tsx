@@ -9,6 +9,7 @@ import FloatingPoster from "@/components/FloatingPoster";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 import FloatingActionButton from "@/components/FloatingActionButton";
+import OurFleet from "@/components/OurFleet";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <div className="bg-white overflow-x-hidden max-w-full">
         <Service />
         <HowItWorks />
+        <OurFleet />
         <OurSolution />
         <WhyChooseUs />
         <Contact />

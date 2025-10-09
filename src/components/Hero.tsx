@@ -6,21 +6,21 @@ import { useState, useEffect } from "react";
 const slides = [
   {
     id: 1,
-    src: "/images/hero/hero-bg1.png",
+    src: "/images/client resources/hero.jpg",
     alt: "Highway truck 1",
-    heading: "RELIABLE LOGISTICS, DELIVERED",
+    heading: "TRUST IN TRANSIT",
     paragraph: "Empowering your business with fast, secure, and flexible transport solutions across India."
   },
   {
     id: 2,
     src: "/images/hero/hero-bg2.jpg", 
     alt: "Highway truck 2",
-    heading: "DECADES OF TRUST, NATIONWIDE REACH",
+    heading: "THE WHEELS THAT KEEP YOUR BUSINESS MOVING",
     paragraph: "Proudly serving India with second-generation leadership and an extensive fleet network."
   },
   {
     id: 3,
-    src: "/images/hero/hero-bg3.jpg",
+    src: "/images/hero/hero-bg2.png",
     alt: "Highway truck 3", 
     heading: "SMART SOLUTIONS FOR EVERY JOURNEY",
     paragraph: "From first-mile pickup to last-mile delivery, we tailor logistics to move your business forward."
@@ -29,9 +29,6 @@ const slides = [
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
-
-  const next = () => setIndex((i) => (i + 1) % slides.length);
-  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
 
   // Auto-swipe functionality
   useEffect(() => {
@@ -83,7 +80,7 @@ export default function Hero() {
               className="group inline-flex items-stretch rounded-xl overflow-hidden shadow-lg"
             >
               <span className="rounded-xl rounded-r-none border border-white/25 bg-white/10 backdrop-blur px-4 sm:px-6 py-2.5 sm:py-3 text-white text-sm sm:text-base font-medium transition-all duration-300 group-hover:bg-blue-600 group-hover:border-blue-600">
-                Contact Us Now
+                Get a quote
               </span>
               <span className="rounded-xl rounded-l-none bg-blue-600 group-hover:bg-blue-600 text-white px-3 sm:px-4 flex items-center transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-4 sm:h-5 w-4 sm:w-5" stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
@@ -97,26 +94,17 @@ export default function Hero() {
       </div>
 
       {/* Bottom slide indicator buttons */}
-      <div className="absolute bottom-4 sm:bottom-6 right-10 sm:right-4 md:right-15 lg:right-22 flex items-center gap-1 sm:gap-2">
+      <div className="absolute bottom-6 sm:bottom-8 left-0 right-0 flex items-center justify-center gap-3 sm:gap-4">
         {slides.map((slide, i) => (
           <button
             key={slide.id}
             type="button"
             onClick={() => setIndex(i)}
-            className={`group flex flex-col items-center gap-1 sm:gap-1.5 transition-all duration-300 ${
-              i === index ? 'opacity-100' : 'opacity-60 hover:opacity-100'
+            className={`w-2 h-3 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+              i === index ? 'bg-blue-500' : 'bg-white/70 hover:bg-white'
             }`}
             aria-label={`Go to slide ${i + 1}`}
-          >
-            <span className={`text-xs sm:text-sm font-bold tracking-wide transition-colors ${
-              i === index ? 'text-white' : 'text-white/70 group-hover:text-white'
-            }`}>
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div className={`h-[2px] sm:h-[3px] w-8 sm:w-10 rounded-full transition-all duration-300 ${
-              i === index ? 'bg-blue-600' : 'bg-white/40 group-hover:bg-white/60'
-            }`} />
-          </button>
+          />
         ))}
       </div>
     </section>

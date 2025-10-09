@@ -37,7 +37,7 @@ export default function Footer() {
 							</span>
 						</Link>
 						<p className="mt-4 sm:mt-5 text-white/70 leading-relaxed max-w-md text-sm sm:text-base">
-							Moving India, One Delivery at a Time. Since 2008.
+							Driving your business forward with a fleet you can trust.
 						</p>
 
 						<form className="mt-5 sm:mt-6 flex h-10 sm:h-12 rounded-full overflow-hidden bg-white/10 ring-1 ring-inset ring-white/15 focus-within:ring-2 focus-within:ring-[#0A3AB6] transition-all">
@@ -58,15 +58,14 @@ export default function Footer() {
 						{/* Social icons */}
 						<div className="mt-5 sm:mt-6 flex items-center gap-2 sm:gap-3">
 							{[
-								{ label: "Facebook", d: "M15 3h-3a5 5 0 00-5 5v3H5v4h2v6h4v-6h3l1-4h-4V8a1 1 0 011-1h3z" },
-								{ label: "Twitter", d: "M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0012 8v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" },
-								{ label: "WhatsApp", d: "M12 2C6.48 2 2 6.48 2 12c0 1.54.36 3.04 1.05 4.35L2 22l5.65-1.05C8.96 21.64 10.46 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.5 14.36c-.24.69-1.2 1.26-1.97 1.42-.52.11-1.2.21-3.49-.75-2.91-1.22-4.8-4.15-4.95-4.34-.14-.19-1.18-1.57-1.18-2.99 0-1.42.75-2.12 1.02-2.41.27-.29.59-.36.79-.36s.4.01.57.01c.18 0 .43-.07.67.51.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.09.19-.14.31-.28.48-.14.17-.29.38-.41.51-.14.15-.28.31-.12.61.16.3.71 1.17 1.53 1.89 1.05.93 1.94 1.22 2.21 1.36.27.14.43.12.59-.07.16-.19.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.13.45.2.52.31.07.11.07.64-.17 1.33z" },
-								{ label: "Instagram", d: "M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 4a1 1 0 110 2 1 1 0 010-2zm-5 2a5 5 0 100 10 5 5 0 000-10z" },
-								{ label: "YouTube", d: "M23.5 6.2a3 3 0 00-2.1-2.1C19.3 3.5 12 3.5 12 3.5s-7.3 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c2.1.6 9.4.6 9.4.6s7.3 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM10 15.5v-7l6 3.5-6 3.5z" },
+								{ label: "Instagram", href: "https://www.instagram.com/sms_logistics25?igsh=MWFscDl0YzI3MHdraw==", d: "M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 4a1 1 0 110 2 1 1 0 010-2zm-5 2a5 5 0 100 10 5 5 0 000-10z" },
+								{ label: "LinkedIn", href: "https://www.linkedin.com/in/rakesh-sharma-42323a37a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", d: "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" },
 							].map((icon) => (
 								<Link
 									key={icon.label}
-									href="#"
+									href={icon.href}
+									target={icon.href.startsWith('http') ? '_blank' : undefined}
+									rel={icon.href.startsWith('http') ? 'noopener noreferrer' : undefined}
 									aria-label={icon.label}
 									className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 hover:bg-[#0A3AB6] transition-colors"
 								>
@@ -116,7 +115,7 @@ export default function Footer() {
 										<path d="M12 2C7.03 2 3 6.03 3 11c0 6 9 11 9 11s9-5 9-11c0-4.97-4.03-9-9-9zm0 12.5c-1.93 0-3.5-1.57-3.5-3.5S10.07 7.5 12 7.5s3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
 									</svg>
 								</span>
-								<div className="leading-relaxed text-sm sm:text-base">Navi Mumbai,<br/>Maharashtra 400614</div>
+								<div className="leading-relaxed text-sm sm:text-base">Sargam Apartment, C5/2 1:2,<br/>Sector - 4, CBD Belapur,<br/>Navi Mumbai - 400 614</div>
 							</li>
 							<li className="flex items-center gap-2 sm:gap-3 text-white/80">
 								<span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
@@ -124,7 +123,7 @@ export default function Footer() {
 										<path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V21a1 1 0 01-1 1C10.07 22 2 13.93 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.2 2.2z"/>
 									</svg>
 								</span>
-								<Link href="tel:+919876543210" className="hover:text-white transition-colors text-sm sm:text-base">+91 98765 43210</Link>
+								<Link href="tel:+919920540535" className="hover:text-white transition-colors text-sm sm:text-base">+91 99205 40535 / +91 99200 13830</Link>
 							</li>
 							<li className="flex items-center gap-2 sm:gap-3 text-white/80">
 								<span className="inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
@@ -132,16 +131,11 @@ export default function Footer() {
 										<path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
 									</svg>
 								</span>
-								<Link href="mailto:info@smslogistics.in" className="hover:text-white transition-colors text-sm sm:text-base">info@smslogistics.in</Link>
+								<Link href="mailto:info@smslogistics.co.in " className="hover:text-white transition-colors text-sm sm:text-base">info@smslogistics.co.in </Link>
 							</li>
 							<li className="flex items-start gap-2 sm:gap-3 text-white/80">
-								<span className="mt-0.5 inline-flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/10 shrink-0">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" className="h-3 w-3 sm:h-4 sm:w-4" stroke="currentColor" strokeWidth="2">
-										<path d="M12 8v5l3 2" strokeLinecap="round"/>
-										<circle cx="12" cy="12" r="9"/>
-									</svg>
-								</span>
-								<div className="text-sm sm:text-base">Mon – Sat: 8 am – 5 pm,<br/>Sunday: CLOSED</div>
+								
+							
 							</li>
 						</ul>
 					</div>

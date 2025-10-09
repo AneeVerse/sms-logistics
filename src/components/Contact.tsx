@@ -12,6 +12,9 @@ export default function Contact() {
     message: "",
   });
 
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const subjects = [
     "General Inquiry",
     "Freight Quote",
@@ -21,10 +24,64 @@ export default function Contact() {
 
   function update<K extends keyof typeof formState>(key: K, value: string) {
     setFormState((s) => ({ ...s, [key]: value }));
+    // Clear error when user starts typing
+    if (errors[key]) {
+      setErrors(prev => ({ ...prev, [key]: "" }));
+    }
+  }
+
+  function validateForm() {
+    const newErrors: Record<string, string> = {};
+
+    // Required field validation
+    if (!formState.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    }
+
+    if (!formState.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    }
+
+    if (!formState.email.trim()) {
+      newErrors.email = "Email is required";
+    } else {
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formState.email)) {
+        newErrors.email = "Please enter a valid email address";
+      }
+    }
+
+    if (!formState.subject) {
+      newErrors.subject = "Please select a subject";
+    }
+
+    if (!formState.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formState.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters long";
+    }
+
+    // Phone validation (optional but if provided, should be valid)
+    if (formState.phone.trim()) {
+      const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+      if (!phoneRegex.test(formState.phone.replace(/[\s\-\(\)]/g, ''))) {
+        newErrors.phone = "Please enter a valid phone number";
+      }
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
     
     try {
       const response = await fetch('/api/contact', {
@@ -46,6 +103,8 @@ export default function Contact() {
     } catch (error) {
       console.error('Error sending message:', error);
       alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -79,7 +138,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">Phone</div>
-                    <div className="font-medium text-black text-sm sm:text-base">+91 98765 43210</div>
+                    <div className="font-medium text-black text-sm sm:text-base">+91 99205 40535 / +91 99200 13830</div>
                   </div>
                 </div>
               </div>
@@ -94,7 +153,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">E-mail</div>
-                    <div className="font-medium text-black text-sm sm:text-base">info@smslogistics.in</div>
+                    <div className="font-medium text-black text-sm sm:text-base">info@smslogistics.co.in </div>
                   </div>
                 </div>
               </div>
@@ -110,7 +169,9 @@ export default function Contact() {
                   <div>
                     <div className="text-xs sm:text-sm text-blue-700">Address</div>
                     <div className="font-medium text-black text-sm sm:text-base">
-                      Navi Mumbai, Maharashtra 400614
+                      Sargam Apartment, C5/2 1:2,<br />
+                      Sector - 4, CBD Belapur,<br />
+                      Navi Mumbai - 400 614
                     </div>
                   </div>
                 </div>
@@ -126,71 +187,130 @@ export default function Contact() {
               </h3>
               <form onSubmit={onSubmit} className="mt-5 sm:mt-6 space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input
-                    type="text"
-                    value={formState.firstName}
-                    onChange={(e) => update("firstName", e.target.value)}
-                    placeholder="First Name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base"
-                    required
-                  />
-                  <input
-                    type="text"
-                    value={formState.lastName}
-                    onChange={(e) => update("lastName", e.target.value)}
-                    placeholder="Last Name"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base"
-                    required
-                  />
+                  <div>
+                    <input
+                      type="text"
+                      value={formState.firstName}
+                      onChange={(e) => update("firstName", e.target.value)}
+                      placeholder="First Name"
+                      className={`w-full rounded-xl border px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 text-sm sm:text-base ${
+                        errors.firstName 
+                          ? 'border-red-300 focus:ring-red-600' 
+                          : 'border-gray-300 focus:ring-blue-600'
+                      }`}
+                      required
+                    />
+                    {errors.firstName && (
+                      <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="text"
+                      value={formState.lastName}
+                      onChange={(e) => update("lastName", e.target.value)}
+                      placeholder="Last Name"
+                      className={`w-full rounded-xl border px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 text-sm sm:text-base ${
+                        errors.lastName 
+                          ? 'border-red-300 focus:ring-red-600' 
+                          : 'border-gray-300 focus:ring-blue-600'
+                      }`}
+                      required
+                    />
+                    {errors.lastName && (
+                      <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <input
-                    type="email"
-                    value={formState.email}
-                    onChange={(e) => update("email", e.target.value)}
-                    placeholder="Email Address"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base"
-                    required
-                  />
-                  <input
-                    type="tel"
-                    value={formState.phone}
-                    onChange={(e) => update("phone", e.target.value)}
-                    placeholder="Phone Number"
-                    className="w-full rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base"
-                  />
+                  <div>
+                    <input
+                      type="email"
+                      value={formState.email}
+                      onChange={(e) => update("email", e.target.value)}
+                      placeholder="Email Address"
+                      className={`w-full rounded-xl border px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 text-sm sm:text-base ${
+                        errors.email 
+                          ? 'border-red-300 focus:ring-red-600' 
+                          : 'border-gray-300 focus:ring-blue-600'
+                      }`}
+                      required
+                    />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                    )}
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      value={formState.phone}
+                      onChange={(e) => update("phone", e.target.value)}
+                      placeholder="Phone Number"
+                      className={`w-full rounded-xl border px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 text-sm sm:text-base ${
+                        errors.phone 
+                          ? 'border-red-300 focus:ring-red-600' 
+                          : 'border-gray-300 focus:ring-blue-600'
+                      }`}
+                    />
+                    {errors.phone && (
+                      <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
+                    )}
+                  </div>
                 </div>
 
-                <select
-                  value={formState.subject}
-                  onChange={(e) => update("subject", e.target.value)}
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 bg-white text-black outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base"
-                  required
-                >
-                  <option value="" disabled>
-                    Subject
-                  </option>
-                  {subjects.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
+                <div>
+                  <select
+                    value={formState.subject}
+                    onChange={(e) => update("subject", e.target.value)}
+                    className={`w-full rounded-xl border px-4 py-3 bg-white text-black outline-none focus:ring-2 text-sm sm:text-base ${
+                      errors.subject 
+                        ? 'border-red-300 focus:ring-red-600' 
+                        : 'border-gray-300 focus:ring-blue-600'
+                    }`}
+                    required
+                  >
+                    <option value="" disabled>
+                      Subject
                     </option>
-                  ))}
-                </select>
+                    {subjects.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  {errors.subject && (
+                    <p className="mt-1 text-sm text-red-600">{errors.subject}</p>
+                  )}
+                </div>
 
-                <textarea
-                  value={formState.message}
-                  onChange={(e) => update("message", e.target.value)}
-                  placeholder="Message"
-                  className="w-full min-h-24 md:min-h-5 sm:min-h-28 rounded-xl border border-gray-300 px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 focus:ring-blue-600 text-sm sm:text-base resize-none"
-                />
+                <div>
+                  <textarea
+                    value={formState.message}
+                    onChange={(e) => update("message", e.target.value)}
+                    placeholder="Message"
+                    className={`w-full min-h-24 md:min-h-5 sm:min-h-28 rounded-xl border px-4 py-3 text-black placeholder:text-gray-600 outline-none focus:ring-2 text-sm sm:text-base resize-none ${
+                      errors.message 
+                        ? 'border-red-300 focus:ring-red-600' 
+                        : 'border-gray-300 focus:ring-blue-600'
+                    }`}
+                  />
+                  {errors.message && (
+                    <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                  )}
+                </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full sm:w-auto rounded-xl bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 active:bg-blue-800 transition-colors text-sm sm:text-base shadow-md"
+                    disabled={isSubmitting}
+                    className={`w-full sm:w-auto rounded-xl px-8 py-3 text-white font-medium transition-colors text-sm sm:text-base shadow-md ${
+                      isSubmitting 
+                        ? 'bg-gray-400 cursor-not-allowed' 
+                        : 'bg-blue-600 hover:bg-blue-700 active:bg-blue-800'
+                    }`}
                   >
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </div>
               </form>

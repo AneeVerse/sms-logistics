@@ -47,42 +47,12 @@ const SERVICES: ServiceConfig[] = [
     heading: "Pan-India Operations",
     description: "Experience seamless connectivity to every corner of India. Our widespread operational network spans all major cities, industrial hubs, and emerging markets, delivering uninterrupted logistics support wherever your business takes you. With reliable last-mile connectivity and deep local expertise, your cargo arrives safely—no destination is out of reach.",
   },
-  {
-    key: "lcv",
-    label: "Light Commercial Vehicles (LCV)",
-    imageSrc: "/images/our-solution/services/Light Commercial Vehicles (LCV).png",
-    imageAlt: "Light commercial vehicles",
-    heading: "Light Commercial Vehicles (LCV)",
-    description: "Perfect for fast-paced urban businesses, our LCVs are designed for quick, agile, and cost-effective delivery within cities and surrounding areas. From e-commerce parcels to time-sensitive documents and small retail consignments, we ensure flexible routing and prompt service for every short-haul load.",
-  },
-  {
-    key: "mcv",
-    label: "Medium Commercial Vehicles (MCV)",
-    imageSrc: "/images/our-solution/services/Medium Commercial Vehicles (MCV).png",
-    imageAlt: "Medium commercial vehicles",
-    heading: "Medium Commercial Vehicles (MCV)",
-    description: "Strike the right balance between capacity and efficiency. Our MCV fleet is ideal for regional distribution and city-to-city transfers—offering optimal load sizes, consistent schedules, and superior reliability. When you need more than a van but less than a truck, MCVs fill the gap seamlessly.",
-  },
-  {
-    key: "hcv",
-    label: "Heavy Commercial Vehicles (HCV)",
-    imageSrc: "/images/our-solution/services/Heavy Commercial Vehicles (HCV).png",
-    imageAlt: "Heavy commercial vehicles",
-    heading: "Heavy Commercial Vehicles (HCV)",
-    description: "Move bulk goods and heavy cargo across vast distances with complete peace of mind. Our HCV segment is engineered for long-haul, high-capacity operations, backed by experienced drivers and robust safety protocols. From manufacturing units to distribution centers, we power the backbone of large-scale logistics.",
-  },
-  {
-    key: "container",
-    label: "Containerized Cargo Movement",
-    imageSrc: "/images/our-solution/services/Containerized Cargo Movement.png",
-    imageAlt: "Containerized cargo transport",
-    heading: "Containerized Cargo Movement",
-    description: "Protect your cargo from weather and theft while maximizing space with our containerized solutions. Ideal for valuable, fragile, or sensitive goods, our container trucks and trailers offer secure, standardized transport—ensuring safe passage from source to destination, no matter the distance or road conditions.",
-  },
+ 
+ 
   {
     key: "specialized",
     label: "Specialized Fleet Sourcing",
-    imageSrc: "/images/our-solution/services/Specialized Fleet Sourcing.png",
+    imageSrc: "/images/client resources/Specialized1.png",
     imageAlt: "Specialized fleet vehicles",
     heading: "Specialized Fleet Sourcing",
     description: "Need something specific? We extend our services with access to rare and specialized vehicles—including 40ft trailers, pullers, multi-axle carriers, and more—via our vast network. No matter how unique or demanding your consignment, we find and deploy the right transport so you never have to compromise on logistics.",
@@ -92,9 +62,25 @@ const SERVICES: ServiceConfig[] = [
 export default function OurSolution() {
   const [active, setActive] = useState<ServiceKey>("fleet");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const activeConfig = SERVICES.find((s) => s.key === active)!;
+
+  // Auto tab change functionality - pause when hovered
+  useEffect(() => {
+    if (isHovered) return; // Don't auto-scroll when hovered
+    
+    const interval = setInterval(() => {
+      setActive(prevActive => {
+        const currentIndex = SERVICES.findIndex(s => s.key === prevActive);
+        const nextIndex = (currentIndex + 1) % SERVICES.length;
+        return SERVICES[nextIndex].key;
+      });
+    }, 5000); // Change tab every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -116,7 +102,10 @@ export default function OurSolution() {
   };
 
   return (
-    <section id="our-solution" className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20">
+    <section 
+      id="our-solution" 
+      className="mx-auto max-w-[1500px] px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20"
+    >
       {/* Eyebrow */}
       <div className="flex items-center gap-2 sm:gap-3 text-blue-600 font-medium justify-center">
         <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-blue-600 inline-block" />
@@ -188,9 +177,9 @@ export default function OurSolution() {
           </div>
         </div>
 
-        {/* Tablet & Desktop: Grid Layout */}
+        {/* Tablet & Desktop: Single Row Layout */}
         <div className="hidden sm:block">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-3 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 max-w-6xl mx-auto">
             {SERVICES.map((s) => {
               const isActive = active === s.key;
               return (
@@ -213,7 +202,11 @@ export default function OurSolution() {
       </div>
 
       {/* Content card (framed, compact) */}
-      <div className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden">
+      <div 
+        className="mt-6 sm:mt-8 mx-auto max-w-[1100px] rounded-[16px] sm:rounded-[20px] md:rounded-[24px] border-[6px] sm:border-[8px] md:border-[10px] border-[#0A3AB6] bg-[#0A3AB6] overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <div className="rounded-[12px] sm:rounded-[14px] md:rounded-[18px] bg-[#0A3AB6] p-3 sm:p-4 md:p-6 lg:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center">
             {/* Image */}
@@ -249,7 +242,7 @@ export default function OurSolution() {
                       element.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="group inline-flex items-center rounded-full bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
+                  className="group inline-flex items-center rounded-lg bg-white text-[#0A3AB6] pl-4 sm:pl-5 pr-2 py-2 sm:py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-white/90"
                 >
                   <span>Contact Us Now</span>
                   <span className="ml-2 sm:ml-3 inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white text-[#0A3AB6] ring-1 ring-inset ring-black/10 transition-colors group-hover:bg-blue-600 group-hover:text-white">
